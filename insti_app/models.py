@@ -21,3 +21,18 @@ class InstiModel(models.Model):
             f"{self.name} | "
             f"{self.email} "
         )
+    
+class ContactModel(models.Model):
+    name = models.CharField(max_length=50)
+    email = models.CharField(max_length=200)
+    mobileNo = models.CharField(max_length=200)
+
+    message = models.CharField(max_length=500)
+
+
+
+    def __str__(self):
+        return (
+            f"{self.name} | "
+            f"{self.email} "
+        )

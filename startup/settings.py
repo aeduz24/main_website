@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-n^x!sf$&m*___8yl0)yse#xo-r6628#zxq@=sasy@3%417(v@c
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS =  ['www.aeduz.com','aeduz.com','13.126.66.72','localhost']
+ALLOWED_HOSTS =  ['www.aeduz.com','aeduz.com','13.126.66.72','localhost','127.0.0.1']
 
 
 
@@ -72,7 +72,7 @@ TEMPLATES = [
 WSGI_APPLICATION = "startup.wsgi.application"
 import os 
 STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 #STATICFILES_DIRS = [
     #os.path.join('var/www/aakar/static', 'static'),
@@ -80,10 +80,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
     
 #]
 # Database https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-#STATICFILES_DIRS = [
- #   os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [
+   os.path.join(BASE_DIR, 'static')
 
-#]
+]
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",

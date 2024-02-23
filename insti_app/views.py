@@ -1,5 +1,5 @@
 from django.shortcuts import render,HttpResponse
-from .models import InstiModel
+from .models import InstiModel,ContactModel
 # Create your views here.
 def insti_page(request):
 
@@ -19,6 +19,21 @@ def submitted_insti(request):
         # Assuming there's a model named InstiModel defined in models.py
         response = InstiModel(name=name, email=email, mobileNo=mobileNo,website=website,
                               address=address, colgStu=colgStu, exam=exam, feedback=feedback)
+        response.save()
+
+        return HttpResponse('Form is successfully submitted')
+
+    return HttpResponse('Invalid method')  # Handling other HTTP methods
+def submit_view(request):
+    if request.method == "POST":
+        name = request.POST.get('name', '')
+        email = request.POST.get('email', '')
+        mobileNo = request.POST.get('tel', '')
+        
+        message = request.POST.get('message', '')
+
+        # Assuming there's a model named InstiModel defined in models.py
+        response = ContactModel(name=name, email=email, mobileNo=mobileNo,message=message)
         response.save()
 
         return HttpResponse('Form is successfully submitted')
