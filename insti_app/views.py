@@ -1,5 +1,5 @@
 from django.shortcuts import render,HttpResponse
-from .models import InstiModel,ContactModel
+from .models import InstiModel,ContactModel,MentorReg
 # Create your views here.
 def insti_page(request):
 
@@ -39,3 +39,20 @@ def submit_view(request):
         return HttpResponse('Form is successfully submitted')
 
     return HttpResponse('Invalid method')  # Handling other HTTP methods
+
+
+def mentor_reg_view(request):
+    if request.method == "POST":
+        name = request.POST.get('name', '')
+        email = request.POST.get('email', '')
+        contact = request.POST.get('contact', '')
+        coaching = request.POST.get('coaching', '')
+        year_of_study = request.POST.get('yearOfStudy', '')
+
+        # Assuming there's a model named MentorRegistration defined in models.py
+        mentor_registration = MentorReg(name=name, email=email, contact=contact, coaching=coaching, year_of_study=year_of_study)
+        mentor_registration.save()
+
+        return HttpResponse('Mentor registration is successfully submitted')
+    else:
+        return render(request, 'your_template_name.html')

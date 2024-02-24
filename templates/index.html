@@ -19,7 +19,8 @@
     </head>
     <body id="page-top">
         <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        
+        <nav class="navbar navbar-expand-lg navbar-dark " id="mainNav">
             <div class="container">
                 <a class="navbar-brand" href="/"><img src="{% static 'aeduz_logo1.png' %} " style="width:200px;height:57px;" alt="..." /></a>
                 {% comment %} <a class="navbar-brand" href="#page-top"><img src="{% static 'aeduz_logo1.png' %} " alt="..." /></a> {% endcomment %}
@@ -39,6 +40,14 @@
                 </div>
             </div>
         </nav>
+        
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>To Become our Top Mentor !</strong> 
+            <button type="button" class="btn btn-primary btn-lg" data-bs-toggle= "modal" data-bs-target = "#staticBackdrop">
+                Register
+              </button> </strong> 
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
         <!-- Masthead-->
         <header class="masthead">
             <div class="container">
@@ -52,6 +61,7 @@
                 <a class="btn btn-primary btn-xl text-uppercase" href="#services">Book 1:1 Call</a>
             </div>
         </header>
+       
         <!-- Who we are-->
         <section class="page-section" id="about">
             <div class="container">
@@ -407,7 +417,7 @@ Insight into student challenges and needs
                     {% comment %} <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3> {% endcomment %}
                 </div>
 
-                <form id="contactForm" method="post" action="institutes/submit">{%csrf_token%}
+                <form id="contactForm" method="post" action="/submit">{%csrf_token%}
                     <div class="row align-items-stretch mb-5">
                         <div class="col-md-6">
                             <div class="form-group">
@@ -460,7 +470,58 @@ Insight into student challenges and needs
                 </div>
             </div>
         </footer>
-   
+
+        <!-- Modal -->
+<div class="modal fade text-black" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Register</h5>
+        </div>
+        <div class="modal-body">
+          <form action="/mentor_reg" method="post"> {% csrf_token %}
+            <div class="mb-3">
+                <label for="colName" class="form-label">Name</label>
+                <input type="text" class="form-control" id="colName" name="name"  required>
+         
+  
+            <div class="mb-3">
+              <label for="state" class="form-label">Personal Email ID</label>
+              <input type="email" class="form-control" id="state" name="email"  required>
+            </div>
+  
+            <div class="mb-3">
+              <label for="phoneNo" class="form-label">Contact No. </label>
+              <input type="number" class="form-control" id="phoneNo" name="contact"  required>
+            </div>
+  
+            <div class="mb-3">
+              <label for="whatsNo" class="form-label">Coaching Name</label>
+              <input type="text" class="form-control" id="whatsNo" name="coaching"  required>
+            </div>
+  
+            <div class="mb-3">
+                <label for="yearOfStudy" class="form-label">Year of Study</label>
+                <select class="form-select" id="yearOfStudy" name="yearOfStudy">
+                    <option value="11th">11th</option>
+                    <option value="12th">12th</option>
+                    <option value="drop">Drop Year</option>
+                </select>
+            </div>
+    
+    
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-success">Submit</button>
+          </form>
+        </div>    
+              
+              
+  
+  
+        </div>
+        
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->

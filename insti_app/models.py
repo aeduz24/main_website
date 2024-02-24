@@ -36,3 +36,14 @@ class ContactModel(models.Model):
             f"{self.name} | "
             f"{self.email} "
         )
+    
+class MentorReg(models.Model):
+    name = models.CharField(max_length=50)
+    email = models.EmailField(max_length=200)
+    contact = models.CharField(max_length=200)
+    coaching = models.CharField(max_length=200)
+    year_of_study = models.CharField(max_length=20)  
+
+    def __str__(self):
+        return f"{self.name} | {self.email}"
+    

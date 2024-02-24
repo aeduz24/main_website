@@ -19,12 +19,14 @@ from django.urls import path,include
 
 
 from .views import *
-
+from insti_app.views import mentor_reg_view,submit_view
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", home_page,name='home_name'),
     path('institutes/', include('insti_app.urls')),
+    path('mentor_reg',mentor_reg_view,name="mentor_reg_url"),
+    path("submit",submit_view,name='submit_view'),
   
     
     path("new", demo_view,name='demo_name'),
