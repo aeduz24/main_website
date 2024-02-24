@@ -28,6 +28,7 @@ urlpatterns = [
     path('institutes/', include('insti_app.urls')),
     path('mentor_reg',mentor_reg_view,name="mentor_reg_url"),
     path("submit",submit_view,name='submit_view'),
+    path("dashboard",dashboard_view,name='dashboard_view'),
   
     
     path("new", demo_view,name='demo_name'),
