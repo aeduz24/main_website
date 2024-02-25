@@ -6,9 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>AeduZ</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="{% static 'assets/favicon.ico' %}" />
+        <title>AeduZ | Institutes</title>
+       
+     
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
@@ -60,7 +60,7 @@
                 <h1 style="color: rgb(35 127 83);">Institutions</h1>
                 <p style="font-size: 22px;">Partner with</p>
                 
-                <h1 style="color: rgb(35 127 83);">Aeduz </h1>
+                <h1 style="color: rgb(35 127 83);">AeduZ </h1>
                 <p style="font-size: 22px;">
                   for Academic
                   Excellence</p>
@@ -129,7 +129,8 @@
                   </div>
                 </div>
               </div>
-        
+              <div class=" col-xl-2 mb-4">
+              </div>
               <div class="col-md-6 col-xl-4 mb-4">
                 <div class="media">
                   <div class="mr-4">
@@ -154,7 +155,7 @@
                 </div>
               </div>
               
-              <div class="col-md-6 col-xl-4 mb-4">
+              {% comment %} <div class="col-md-6 col-xl-4 mb-4">
                 <div class="media">
                   <div class="mr-4">
                     <span class="text-success"><i class="icon-fa far fa-handshake fa-2x"></i></span>
@@ -164,7 +165,7 @@
                     <p class="text-muted">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium eaque ipsa doloremque laudantium.</p>
                   </div>
                 </div>
-              </div>
+              </div> {% endcomment %}
         
             </div>
           </div>
@@ -187,20 +188,20 @@
                         <div class="col-md-6">
                             <div class="form-group mb-md-2 ">
                                 <!-- Name input-->
-                                <input class="form-control" name="insti_name" type="text" placeholder="Name of Institute *" data-sb-validations="required" />
+                                <input class="form-control" name="insti_name" type="text" placeholder="Name of Institute *" required />
                                
                             </div>
                             <div class="form-group mb-md-2 ">
                                 <!-- Email address input-->
-                                <input class="form-control" name="insti_email" type="email" placeholder="Company / POC Email *" data-sb-validations="required,email" />
+                                <input class="form-control" name="insti_email" type="email" placeholder="Company / POC Email *" required />
                             </div>
                             <div class="form-group mb-md-2 ">
                                 <!-- Phone number input-->
-                                <input class="form-control"  name="insti_tel" type="tel" placeholder="Contact *" data-sb-validations="required" />
+                                <input class="form-control"  name="insti_tel" type="tel" placeholder="Contact *" required />
                             </div>
                             <div class="form-group mb-md-2 ">
                               <!-- Phone number input-->
-                              <input class="form-control" name="insti_loc"  type="text" placeholder="Location *" data-sb-validations="required" />
+                              <input class="form-control" name="insti_loc"  type="text" placeholder="Location *" required />
                           </div>
                           
                           
@@ -211,15 +212,15 @@
                         <div class="col-md-6">
                                 <div class="form-group mb-md-2 ">
                                   <!-- Phone number input-->
-                                  <input class="form-control" name="insti_stu" type="number" placeholder="No. of enrolled student this year *" data-sb-validations="required" />
+                                  <input class="form-control" name="insti_stu" type="number" placeholder="No. of enrolled student this year *" required />
                               </div>
                             
                             <div class="form-group mb-md-2 ">
                                 <!-- Phone number input-->
-                                <input class="form-control form-group" name="insti_web"  type="text" placeholder="Website / LinkedIn Url" data-sb-validations="required" />
+                                <input class="form-control form-group" name="insti_web"  type="text" placeholder="Website / LinkedIn Url"  />
                             </div>
                             <div class="form-group mb-md-2 ">
-                              <select id="exam_choice" name="insti_exam" class="form-control" data-sb-validations="required">
+                              <select id="exam_choice" name="insti_exam" class="form-control" required>
                                 <option value="">-- Select an Exam --</option>
                                 <option value="jee_main">JEE Main</option>
                                 <option value="jee_advanced">JEE Advanced</option>
@@ -229,7 +230,7 @@
                             </div>
                             <div class="form-group  mb-md-3 ">
                               <!-- Message input-->
-                              <textarea class="form-control" name="insti_text" id="message" placeholder="Additional Comment *" data-sb-validations="required"></textarea>
+                              <textarea class="form-control" name="insti_text" id="message" placeholder="Additional Comment *" ></textarea>
                             </div>
                           </div>
                         </div>
@@ -247,21 +248,21 @@
        
         <!-- Footer-->
         <footer class="footer py-4">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-4 text-lg-start">Copyright &copy; AeduZ Team 2024</div>
-                    <div class="col-lg-4 my-3 my-lg-0">
-                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                    <div class="col-lg-4 text-lg-end">
-                        <a class="link-dark text-decoration-none me-3" href="#!">Privacy Policy</a>
-                        <a class="link-dark text-decoration-none" href="#!">Terms of Use</a>
-                    </div>
-                </div>
-            </div>
-        </footer>
+          <div class="container">
+              <div class="row align-items-center">
+                  <div class="col-lg-4 text-lg-start">Copyright &copy; AeduZ Team 2024</div>
+                  <div class="col-lg-4 my-3 my-lg-0">
+                      {% comment %} <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i class="fab fa-twitter"></i></a> {% endcomment %}
+                      {% comment %} <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a> {% endcomment %}
+                      <a class="btn btn-dark btn-social mx-2" href="https://www.linkedin.com/company/aeduz/" target='_blank' aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                  </div>
+                  <div class="col-lg-4 text-lg-end">
+                      {% comment %} <a class="link-dark text-decoration-none me-3" href="#!">Privacy Policy</a>
+                      <a class="link-dark text-decoration-none" href="#!">Terms of Use</a> {% endcomment %}
+                  </div>
+              </div>
+          </div>
+      </footer>
         <!-- Portfolio Modals-->
        
         <!-- Bootstrap core JS-->
