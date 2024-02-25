@@ -5,11 +5,14 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
+        <meta name="description" content="AeduZ - Personalized 1:1 mentorship platform
+        premier destination for personalised mentorship for JEE, NEET, GENERAL COMPETITION, filled them with confidence & resilience to overcome challenges & achieve their educational goals. 
+        
+        " />
+        <meta name="keywords" content="AeduZ, Personalized mentorship, JEE, NEET, General competition, Confidence, Resilience, Educational goals, Hassle-free study experiences, 1:1 mentorship session, Unlock potential, Institutions, Register, IITian, NITian, Medical support, Contact us, Grievance">
         <meta name="author" content="" />
         <title>AdeuZ </title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="{% static 'assets/favicon.ico' %}" />
+        
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
@@ -17,14 +20,23 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{% static 'css/styles.css'%}" rel="stylesheet" />
+
+        <!-- favicon Files -->
+        <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
+        <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}">
+        <link rel="mask-icon" href="{% static 'favicon/safari-pinned-tab.svg' %}" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
     </head>
     <body id="page-top">
         <!-- Navigation-->
         
         <nav class="navbar navbar-expand-lg navbar-dark " id="mainNav">
             <div class="container">
-                <a class="navbar-brand" href="/"><img src="{% static 'aeduz_logo1.png' %} " style="width:200px;height:57px;" alt="..." /></a>
-                {% comment %} <a class="navbar-brand" href="#page-top"><img src="{% static 'aeduz_logo1.png' %} " alt="..." /></a> {% endcomment %}
+                <a class="navbar-brand" href="/"><img src="{% static 'aeduz_transparent.png' %} " style="width:120px;height:90px;" alt="..." /></a>
+                {% comment %} <a class="navbar-brand" href="#page-top"><img src="{% static 'final_aeduz.png' %} " alt="..." /></a> {% endcomment %}
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars ms-1"></i>
@@ -33,14 +45,14 @@
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
                         <li class="nav-item"><a class="nav-link" href="#services">About Us</a></li>
                         <!-- <li class="nav-item"><a class="nav-link" href="#portfolio">Book 1:1 Call</a></li> -->
-                        <!-- <li class="nav-item"><a class="nav-link" href="#about">Why Eduwayy?</a></li> -->
+                        <!-- <li class="nav-item"><a class="nav-link" href="#about">Why AeduB?</a></li> -->
                         <li class="nav-item"><a class="nav-link" href="/institutes">Institutions </a></li>
                         <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
                         {% if user.is_authenticated %}
     <li class="nav-item"><a class="nav-link" href="{% url 'account_logout' %}">Logout</a></li>
 {% else %}
-    <li class="nav-item"><a class="nav-link" href="/accounts/google/login/">Dashboard</a></li>
+    <li class="nav-item"><a class="nav-link" href="/accounts/google/login/">Google SignUp</a></li>
 {% endif %}
 
 <!-- <a href="{% provider_login_url 'google'%}?next=/new">Login with Google</a> -->
@@ -50,6 +62,7 @@
                 </div>
             </div>
         </nav>
+
         
           <div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>To Become our Top Mentor !</strong> 
@@ -58,6 +71,21 @@
               </button> </strong> 
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
+     
+          {%if insti_form or menti_form or contact_form %}
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Form submitted successfully !</strong> 
+          
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          {%endif%}
+          {%if dashboard %}
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>First Google Login in order to go to Dashboard!</strong> 
+          
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          {%endif%}
         <!-- Masthead-->
         <header class="masthead">
             <div class="container">
@@ -88,7 +116,7 @@
                                 <h4 class="subheading">Who Are We?</h4>
                             </div>
                             <div class="timeline-body"><p class="text-muted">
-Eduwayy is your premier destination for personalized mentorship. Through our innovative platform & network of experienced mentors, we empower the students, filled them with confidence & resilience to overcome challenges & achieve their educational goals.
+AeduB is your premier destination for personalized mentorship. Through our innovative platform & network of experienced mentors, we empower the students, filled them with confidence & resilience to overcome challenges & achieve their educational goals.
                             </p></div>
                         </div>
                     </li>
@@ -321,7 +349,7 @@ Eduwayy is your premier destination for personalized mentorship. Through our inn
         <div class="container">
         <div class="row">
         <div class="col-md-6">
-        <h2>BENEFITS for IITians after becoming Eduwayy MENTORS</h2>
+        <h2>BENEFITS for IITians after becoming AeduB MENTORS</h2>
         </div>
         <div class="col-md-6">
 
@@ -383,7 +411,7 @@ Insight into student challenges and needs
                             <img class="mx-auto rounded-circle" src="{% static 'assets/img/team/shubham.jpg' %} " alt="..." />
                             <h4>Shubham Jadhav</h4>
                             <br>
-                            <p class="text-muted">"Aeduz connects future itians with Iltians"</p>
+                            <p class="text-muted">"Aeduz connects future IITians with IITians"</p>
                             <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Twitter Profile"><i class="fab fa-twitter"></i></a>
                             <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Facebook Profile"><i class="fab fa-facebook-f"></i></a>
                             <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>

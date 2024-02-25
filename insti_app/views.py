@@ -21,7 +21,9 @@ def submitted_insti(request):
                               address=address, colgStu=colgStu, exam=exam, feedback=feedback)
         response.save()
 
-        return HttpResponse('Form is successfully submitted')
+        return  render(request,'index.html',{'insti_form':True,'menti_form':False,'contact_form':False,'dashboard':False })
+    else:
+        return  render(request,'index.html',{'insti_form':False,'menti_form':False,'contact_form':False,'dashboard':False })
 
     return HttpResponse('Invalid method')  # Handling other HTTP methods
 def submit_view(request):
@@ -36,9 +38,9 @@ def submit_view(request):
         response = ContactModel(name=name, email=email, mobileNo=mobileNo,message=message)
         response.save()
 
-        return HttpResponse('Form is successfully submitted')
+        return render(request,'index.html',{'insti_form':False,'menti_form':False,'contact_form':True,'dashboard':False })
 
-    return HttpResponse('Invalid method')  # Handling other HTTP methods
+    return  render(request,'index.html',{'insti_form':False,'menti_form':False,'contact_form':False,'dashboard':False })  # Handling other HTTP methods
 
 
 def mentor_reg_view(request):
@@ -53,6 +55,6 @@ def mentor_reg_view(request):
         mentor_registration = MentorReg(name=name, email=email, contact=contact, coaching=coaching, year_of_study=year_of_study)
         mentor_registration.save()
 
-        return HttpResponse('Mentor registration is successfully submitted')
+        return render(request,'index.html',{'insti_form':False,'menti_form':True,'contact_form':False,'dashboard':True })
     else:
-        return render(request, 'your_template_name.html')
+        return  render(request,'index.html',{'insti_form':False,'menti_form':False,'contact_form':False,'dashboard':False })

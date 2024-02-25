@@ -2,7 +2,7 @@ from django.shortcuts import render,HttpResponse
 from insti_app.views import MentorReg,InstiModel
 def home_page(request):
 
-    return render(request,'index.html')
+    return render(request,'index.html',{'insti_form':False,'menti_form':False,'contact_form':False,'dashboard':False })
 
 
 
@@ -30,4 +30,4 @@ def dashboard_view(request):
 
         return render(request, 'dashboard.html', context)
     else:
-        return HttpResponse('first login with google then go to dashboard',status=401)
+        return render(request,'index.html',{'insti_form':False,'menti_form':False,'contact_form':False,'dashboard':True })
