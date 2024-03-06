@@ -32,4 +32,6 @@ urlpatterns = [
     path('privacypolicy',privacy_view,name="privacy name"),
     path('termsofservice',terms_view,name="terms name"),  
     path("new", demo_view,name='demo_name'),
+     path("payment",payment_view,name="payment name"),
+    path("success",success_view,name="success name")
 ]

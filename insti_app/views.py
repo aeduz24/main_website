@@ -1,9 +1,14 @@
 from django.shortcuts import render,HttpResponse
 from .models import InstiModel,ContactModel,MentorReg
 # Create your views here.
+
+
+
 def insti_page(request):
 
     return render(request,'institute.html')
+
+
 
 def submitted_insti(request):
     if request.method == "POST":

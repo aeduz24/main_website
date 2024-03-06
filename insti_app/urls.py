@@ -5,6 +5,7 @@ from .views import *
 urlpatterns = [
     path("", insti_page,name='insti_name'),
     path("submitted",submitted_insti,name='submit_insti'),
+   
     
 
 

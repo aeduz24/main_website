@@ -1,8 +1,32 @@
 from django.shortcuts import render,HttpResponse 
 from insti_app.views import MentorReg,InstiModel
+from insti_app.models import PaymentModel
 def home_page(request):
 
     return render(request,'index.html',{'insti_form':False,'menti_form':False,'contact_form':False,'dashboard':False })
+import razorpay
+
+
+#payment section
+def payment_view(request):
+    if request.method =='POST':
+        name=request.POST.get("name")
+        amount=int(request.POST.get("amount"))*100
+    
+        client = razorpay.Client(auth=("rzp_live_WKs3ynkTOP8lcd", "fZeNBhZsubgV1SW3E4mD69kB"))
+
+        data = { "amount": amount, "currency": "INR", "receipt": "order_rcptid_11","payment_capture":'1',"notes": {
+        "name": name,
+        "key2": "value2"
+    }}
+        payment = client.order.create(data=data)
+        print(payment)
+        PaymentModel(name=name,amount=amount,payment_id=payment['id']).save()
+
+        return render(request,'payment.html',{'payment':payment})
+    return render(request,'payment.html')
+def success_view(request):
+    return render (request,'success.html')
 
 
 
