@@ -29,7 +29,7 @@ urlpatterns = [
     path('mentor_reg',mentor_reg_view,name="mentor_reg_url"),
     path("submit",submit_view,name='submit_view'),
     path("dashboard",dashboard_view,name='dashboard_view'),
-  
-    
+    path('privacypolicy',privacy_view,name="privacy name"),
+    path('termsofservice',terms_view,name="terms name"),  
     path("new", demo_view,name='demo_name'),
 ]

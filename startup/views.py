@@ -9,7 +9,11 @@ def home_page(request):
 def demo_view(request):
 
     return render(request,'new.html')
+def privacy_view(request):
+    return render(request,'privacy.html')
 
+def terms_view(request):
+    return render(request,'terms.html')
 def dashboard_view(request):
     # Assuming you have retrieved the email from Google login
     if request.user.is_authenticated:
