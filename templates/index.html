@@ -20,6 +20,7 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{% static 'css/styles.css'%}" rel="stylesheet" />
+        <link rel="stylesheet" href="{% static 'css/pricing.css'%}">
 
         <!-- favicon Files -->
         <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}">
@@ -29,13 +30,35 @@
         <link rel="mask-icon" href="{% static 'favicon/safari-pinned-tab.svg' %}" color="#5bbad5">
         <meta name="msapplication-TileColor" content="#da532c">
         <meta name="theme-color" content="#ffffff">
+
+        <style>
+            /* Custom styles */
+            .testimonial-item {
+                padding: 30px;
+                color: white;
+                background-color: #0D324D; /* Default background color */
+                border-radius: 10px;
+                text-align: center;
+            }
+        
+            .testimonial-item.active {
+                background-color: #ffc107; /* Active (highlighted) background color */
+            }
+        
+            .testimonial-photo {
+                width: 100px; /* Adjust photo size as needed */
+                height: 100px;
+                border-radius: 50%;
+                margin-bottom: 20px;
+            }
+        </style>
     </head>
     <body id="page-top">
         <!-- Navigation-->
         
         <nav class="navbar navbar-expand-lg navbar-dark " id="mainNav">
             <div class="container">
-                <a class="navbar-brand" href="/"><img src="{% static 'aeduz_transparent.png' %} " style="width:120px;height:90px;" alt="..." /></a>
+                <a class="navbar-brand" href="/"><img src="{% static 'aeduz_transparent.png' %} " style="width:11%;height:100%" alt="..." /></a>
                 {% comment %} <a class="navbar-brand" href="#page-top"><img src="{% static 'final_aeduz.png' %} " alt="..." /></a> {% endcomment %}
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
@@ -136,72 +159,15 @@ AeduZ is your premier destination for personalized mentorship. Through our innov
 
             <!-- take or not take-->
             
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <h3>
-
-                                    For Mentors & Students  
-                                </h3>
-                                <h2>
-                                    Confused?  To take or not?
-                                    
-                                </h2>
-                                <p>
-
-                                    You can talk to our customer service through WhatsApp icon on right-bottom or through mail at <strong><a href=mailto:team@aeduz.com>team@aeduz.com</a></strong>.
-                                </p>
-                            </div>
-                            <div class="col-md-6">
-                                <h3>
-                                    For Institutions
-                                </h3>
-                                <h2>
-                                    Associates With Us
-                                </h2>
-                                <p>
-                                    We do partner with institutions who prepare students for competitive exams.
-                                </p>
-
-                                <button type="button" class="btn btn-danger">Know More</button>
-                            </div>
-                        </div>
-                    {% comment %} <li>
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="{% static 'assets/img/about/3.jpg' %} " alt="..." /></div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4>December 2015</h4>
-                                <h4 class="subheading">Transition to Full Service</h4>
-                            </div>
-                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
-                        </div>
-                    </li>
-                    <li class="timeline-inverted">
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="{% static 'assets/img/about/4.jpg' %} " alt="..." /></div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4>July 2020</h4>
-                                <h4 class="subheading">Phase Two Expansion</h4>
-                            </div>
-                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
-                        </div>
-                    </li>
-                    <li class="timeline-inverted">
-                        <div class="timeline-image">
-                            <h4>
-                                Be Part
-                                <br />
-                                Of Our
-                                <br />
-                                Story!
-                            </h4>
-                        </div>
-                    </li> {% endcomment %}
-                </ul>
-            </div>
+            
         </section>
         <!-- why do student trust us-->
-        <section class="page-section" id="services">
+        <!-- <p>
+
+            You can talk to our customer service through WhatsApp icon on right-bottom or through mail at <strong><a href=mailto:team@aeduz.com>team@aeduz.com</a></strong>.
+        </p> -->
+
+        <section class="page-section" id="services" style="background-color: #c4d3df;">
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Why do Students Trust Us</h2>
@@ -242,108 +208,8 @@ AeduZ is your premier destination for personalized mentorship. Through our innov
                     </div>
                 </div>
             </div>
-        </section>
-        <!-- Portfolio Grid-->
-        {% comment %} <section class="page-section bg-light" id="portfolio">
-            <div class="container">
-                <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Portfolio</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4 col-sm-6 mb-4">
-                        <!-- Portfolio item 1-->
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                                </div>
-                                <img class="img-fluid" src="{% static 'assets/img/portfolio/1.jpg' %} " alt="..." />
-                            </a>
-                            <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Threads</div>
-                                <div class="portfolio-caption-subheading text-muted">Illustration</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 mb-4">
-                        <!-- Portfolio item 2-->
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                                </div>
-                                <img class="img-fluid" src="{% static 'assets/img/portfolio/2.jpg' %} " alt="..." />
-                            </a>
-                            <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Explore</div>
-                                <div class="portfolio-caption-subheading text-muted">Graphic Design</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 mb-4">
-                        <!-- Portfolio item 3-->
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal3">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                                </div>
-                                <img class="img-fluid" src="{% static 'assets/img/portfolio/3.jpg' %} " alt="..." />
-                            </a>
-                            <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Finish</div>
-                                <div class="portfolio-caption-subheading text-muted">Identity</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
-                        <!-- Portfolio item 4-->
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal4">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                                </div>
-                                <img class="img-fluid" src="{% static 'assets/img/portfolio/4.jpg' %} " alt="..." />
-                            </a>
-                            <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Lines</div>
-                                <div class="portfolio-caption-subheading text-muted">Branding</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
-                        <!-- Portfolio item 5-->
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal5">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                                </div>
-                                <img class="img-fluid" src="{% static 'assets/img/portfolio/5.jpg' %} " alt="..." />
-                            </a>
-                            <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Southwest</div>
-                                <div class="portfolio-caption-subheading text-muted">Website Design</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <!-- Portfolio item 6-->
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal6">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                                </div>
-                                <img class="img-fluid" src="{% static 'assets/img/portfolio/6.jpg' %} " alt="..." />
-                            </a>
-                            <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Window</div>
-                                <div class="portfolio-caption-subheading text-muted">Photography</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section> {% endcomment %}
+       
+       
 
         <!-- benifits for mentors-->
         <div class="container">
@@ -375,8 +241,144 @@ Insight into student challenges and needs
         </div>
         </div>
         </div>
+    </section >
+        <!-- Pricing Plans -->
+
+        <section id="pricing" class="pricing-content section-padding">
+            <div class="container">					
+                <div class="section-title text-center">
+                    <h2>Pricing Plans</h2>
+                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                </div>				
+                <div class="row text-center">									
+                    <div class="col-lg-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s" data-wow-offset="0" style="visibility: visible; animation-duration: 1s; animation-delay: 0.1s; animation-name: fadeInUp;">
+                        <div class="pricing_design">
+                            <div class="single-pricing">
+                                <div class="price-head">		
+                                    <h2>Starter</h2>
+                                    <h1>$0</h1>
+                                    <span>/Monthly</span>
+                                </div>
+                                <ul>
+                                    <li><b>15</b> website</li>
+                                    <li><b>50GB</b> Disk Space</li>
+                                    <li><b>50</b> Email</li>
+                                    <li><b>50GB</b> Bandwidth</li>
+                                    <li><b>10</b> Subdomains</li>
+                                    <li><b>Unlimited</b> Support</li>
+                                </ul>
+                                <div class="pricing-price">
+                                    
+                                </div>
+                                <a href="#" class="price_btn">Order Now</a>
+                            </div>
+                        </div>
+                    </div><!--- END COL -->	
+                    <div class="col-lg-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s" data-wow-offset="0" style="visibility: visible; animation-duration: 1s; animation-delay: 0.2s; animation-name: fadeInUp;">
+                        <div class="pricing_design">
+                            <div class="single-pricing">
+                                <div class="price-head">		
+                                    <h2>Personal</h2>
+                                    <h1 class="price">$29</h1>
+                                    <span>/Monthly</span>
+                                </div>
+                                <ul>
+                                    <li><b>15</b> website</li>
+                                    <li><b>50GB</b> Disk Space</li>
+                                    <li><b>50</b> Email</li>
+                                    <li><b>50GB</b> Bandwidth</li>
+                                    <li><b>10</b> Subdomains</li>
+                                    <li><b>Unlimited</b> Support</li>
+                                </ul>
+                                <div class="pricing-price">
+                                    
+                                </div>
+                                <a href="#" class="price_btn">Order Now</a>
+                            </div>
+                        </div>
+                    </div><!--- END COL -->	
+                    <div class="col-lg-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0" style="visibility: visible; animation-duration: 1s; animation-delay: 0.3s; animation-name: fadeInUp;">
+                        <div class="pricing_design">
+                            <div class="single-pricing">
+                                <div class="price-head">		
+                                    <h2>Ultimate</h2>
+                                    <h1 class="price">$49</h1>
+                                    <span>/Monthly</span>
+                                </div>
+                                <ul>
+                                    <li><b>15</b> website</li>
+                                    <li><b>50GB</b> Disk Space</li>
+                                    <li><b>50</b> Email</li>
+                                    <li><b>50GB</b> Bandwidth</li>
+                                    <li><b>10</b> Subdomains</li>
+                                    <li><b>Unlimited</b> Support</li>
+                                </ul>
+                                <div class="pricing-price">
+                                    
+                                </div>
+                                <a href="#" class="price_btn">Order Now</a>
+                            </div>
+                        </div>
+                    </div><!--- END COL -->			  
+                </div><!--- END ROW -->
+            </div><!--- END CONTAINER -->
+        </section>
+
+
+        <!--Testimonial Section-->
+
         
-        <!-- Team-->
+<div class="container py-5" style="background-color: #c4d3df;">
+    <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="row">
+                    <div class="col-md-6 mx-auto">
+                        <div class="testimonial-item">
+                            <img src="testimonial1.jpg" alt="Testimonial 1" class="testimonial-photo">
+                            <h3>Testimonial 1</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-md-6 mx-auto">
+                        <div class="testimonial-item">
+                            <img src="testimonial2.jpg" alt="Testimonial 2" class="testimonial-photo">
+                            <h3>Testimonial 2</h3>
+                            <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-md-6 mx-auto">
+                        <div class="testimonial-item">
+                            <img src="testimonial3.jpg" alt="Testimonial 3" class="testimonial-photo">
+                            <h3>Testimonial 3</h3>
+                            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+            
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+        
+        
+              <!-- Team-->
         <section class="page-section bg-light" id="team">
             <div class="container">
                 <div class="text-center">
@@ -528,7 +530,7 @@ Insight into student challenges and needs
             <div class="mb-3">
                 <label for="colName" class="form-label">Name</label>
                 <input type="text" class="form-control" id="colName" name="name"  required>
-         
+            </div>
   
             <div class="mb-3">
               <label for="state" class="form-label">Personal Email ID</label>
@@ -565,19 +567,15 @@ Insight into student challenges and needs
           </form>
         </div>    
               
-              
-  
-  
+       </div>
+        </div>
         </div>
         
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="{% static 'js/scripts.js' %}"></script>
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- * *                               SB Forms JS                               * *-->
-        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+      
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
     </body>
 

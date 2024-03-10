@@ -1,6 +1,6 @@
-from django.shortcuts import render,HttpResponse 
+from django.shortcuts import render,HttpResponse ,redirect
 from insti_app.views import MentorReg,InstiModel
-from insti_app.models import PaymentModel
+from insti_app.models import PaymentModel,Mentee
 def home_page(request):
 
     return render(request,'index.html',{'insti_form':False,'menti_form':False,'contact_form':False,'dashboard':False })
@@ -38,6 +38,8 @@ def privacy_view(request):
 
 def terms_view(request):
     return render(request,'terms.html')
+
+from book.models import BookModel
 def dashboard_view(request):
     # Assuming you have retrieved the email from Google login
     if request.user.is_authenticated:
@@ -46,10 +48,20 @@ def dashboard_view(request):
         mentor_info = MentorReg.objects.filter(email=user_email).first()
         institute_info = InstiModel.objects.filter(email=user_email).first()
 
+        mentee_info=Mentee.objects.filter(email=user_email).first()
+
+        appointments = BookModel.objects.filter(email=user_email)
         context = {}
+        context['appointments']=appointments
+        context['mentee_update']= True
+        if mentee_info:
+            context['mentee_update']=False 
+        
+
         context['user']=user
         
         context['mentor_info'] = mentor_info
+        context['mentee_info'] = mentee_info
         context['institute_info'] = institute_info
         if mentor_info:
             context['is_mentor'] = True

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Time Slot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .time-slots {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .time-slot {
+            width: calc(50% - 10px);
+            margin-bottom: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .time-slot input[type="radio"] {
+            display: none;
+        }
+
+        .time-slot label {
+            display: block;
+            padding: 15px;
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .time-slot input[type="radio"]:checked+label {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Select Time Slot</h1>
+        <div class="time-slots">
+            <!-- Half-hour intervals from 12:00 PM to 11:30 PM -->
+            <!-- You can adjust the time slots as needed -->
+            <div class="time-slot"><input type="radio" id="slot1" name="timeslot"><label for="slot1">12:00 PM - 12:30
+                    PM</label></div>
+            <div class="time-slot"><input type="radio" id="slot2" name="timeslot"><label for="slot2">12:30 PM - 1:00
+                    PM</label></div>
+            <div class="time-slot"><input type="radio" id="slot3" name="timeslot"><label for="slot3">1:00 PM - 1:30
+                    PM</label></div>
+            <div class="time-slot"><input type="radio" id="slot4" name="timeslot"><label for="slot4">1:30 PM - 2:00
+                    PM</label></div>
+            <div class="time-slot"><input type="radio" id="slot5" name="timeslot"><label for="slot5">2:00 PM - 2:30
+                    PM</label></div>
+            <div class="time-slot"><input type="radio" id="slot6" name="timeslot"><label for="slot6">2:30 PM - 3:00
+                    PM</label></div>
+            <div class="time-slot"><input type="radio" id="slot7" name="timeslot"><label for="slot7">3:00 PM - 3:30
+                    PM</label></div>
+            <div class="time-slot"><input type="radio" id="slot8" name="timeslot"><label for="slot8">3:30 PM - 4:00
+                    PM</label></div>
+            <div class="time-slot"><input type="radio" id="slot9" name="timeslot"><label for="slot9">4:00 PM - 4:30
+                    PM</label></div>
+            <div class="time-slot"><input type="radio" id="slot10" name="timeslot"><label for="slot10">4:30 PM - 5:00
+                    PM</label></div>
+            <div class="time-slot"><input type="radio" id="slot11" name="timeslot"><label for="slot11">5:00 PM - 5:30
+                    PM</label></div>
+            <div class="time-slot"><input type="radio" id="slot12" name="timeslot"><label for="slot12">5:30 PM - 6:00
+                    PM</label></div>
+            <div class="time-slot"><input type="radio" id="slot13" name="timeslot"><label for="slot13">6:00 PM - 6:30
+                    PM</label></div>
+            <div class="time-slot"><input type="radio" id="slot14" name="timeslot"><label for="slot14">6:30 PM - 7:00
+                    PM</label></div>
+            <div class="time-slot"><input type="radio" id="slot15" name="timeslot"><label for="slot15">7:00 PM - 7:30
+                    PM</label></div>
+            <div class="time-slot"><input type="radio" id="slot16" name="timeslot"><label for="slot16">7:30 PM - 8:00
+                    PM</label></div>
+            <div class="time-slot"><input type="radio" id="slot17" name="timeslot"><label for="slot17">8:00 PM - 8:30
+                    PM</label></div>
+            <div class="time-slot"><input type="radio" id="slot18" name="timeslot"><label for="slot18">8:30 PM - 9:00
+                    PM</label></div>
+            <div class="time-slot"><input type="radio" id="slot19" name="timeslot"><label for="slot19">9:00 PM - 9:30
+                    PM</label></div>
+            <div class="time-slot"><input type="radio" id="slot20" name="timeslot"><label for="slot20">9:30 PM - 10:00
+                    PM</label></div>
+            <div class="time-slot"><input type="radio" id="slot21" name="timeslot"><label for="slot21">10:00 PM - 10:30
+                    PM</label></div>
+            <div class="time-slot"><input type="radio" id="slot22" name="timeslot"><label for="slot22">10:30 PM - 11:00
+                    PM</label></div>
+            <div class="time-slot"><input type="radio" id="slot23" name="timeslot"><label for="slot23">11:00 PM - 11:30
+                    PM</label></div>
+        </div>
+
+    </div>
+    </div>
+
+</body>
+
+</html>

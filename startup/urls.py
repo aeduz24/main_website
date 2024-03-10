@@ -19,19 +19,22 @@ from django.urls import path,include
 
 
 from .views import *
-from insti_app.views import mentor_reg_view,submit_view
+from insti_app.views import mentor_reg_view,submit_view,mentee_reg_view
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('accounts/', include('allauth.urls')), 
     path("", home_page,name='home_name'),
     path('institutes/', include('insti_app.urls')),
+    path('booking/', include('book.urls')),
     path('mentor_reg',mentor_reg_view,name="mentor_reg_url"),
+    path('mentee_reg',mentee_reg_view,name="mentee_reg_url"),
     path("submit",submit_view,name='submit_view'),
-    path("dashboard",dashboard_view,name='dashboard_view'),
+    path("dashboard",dashboard_view,name='dashboard_name'),
     path('privacypolicy',privacy_view,name="privacy name"),
     path('termsofservice',terms_view,name="terms name"),  
     path("new", demo_view,name='demo_name'),
+ 
      path("payment",payment_view,name="payment name"),
     path("success",success_view,name="success name")
 ]

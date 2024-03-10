@@ -10876,12 +10876,12 @@ p {
 }
 
 #mainNav {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  /* padding-top: 1rem;
+  padding-bottom: 1rem; */
   background-color: #212529;
 }
 #mainNav .navbar-toggler {
-  padding: 0.75rem;
+  /* padding: 0.75rem; */
   font-size: 0.75rem;
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   text-transform: uppercase;
@@ -10895,7 +10895,7 @@ p {
   text-transform: uppercase;
 }
 #mainNav .navbar-brand img {
-  height: 1.5rem;
+  /* height: 1.5rem; */
 }
 #mainNav .navbar-nav .nav-item .nav-link {
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -10909,8 +10909,8 @@ p {
 
 @media (min-width: 992px) {
   #mainNav {
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
+    /* padding-top: 1.5rem;
+    padding-bottom: 1.5rem; */
     border: none;
     background-color: black;
     transition: padding-top 0.3s ease-in-out, padding-bottom 0.3s ease-in-out;
@@ -10920,12 +10920,12 @@ p {
     transition: font-size 0.3s ease-in-out;
   }
   #mainNav .navbar-brand img {
-    height: 2rem;
+    /* height: 2rem; */
     transition: height 0.3s ease-in-out;
   }
   #mainNav.navbar-shrink {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    /* padding-top: 1rem;
+    padding-bottom: 1rem; */
     background-color: #212529;
   }
   #mainNav.navbar-shrink .navbar-brand {
@@ -10947,11 +10947,13 @@ header.masthead {
   padding-bottom: 6rem;
   text-align: center;
   color: black;
-  /* background-image: url("../assets/img/header-bg.jpg"); */
+  /* background-image: url("../aeduz_back.jpg"); */
+  background-color: #c4d3df;
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
   background-size: cover;
+  
 }
 header.masthead .masthead-subheading {
   font-size: 1.5rem;
@@ -11172,7 +11174,7 @@ header.masthead .masthead-heading {
   }
   .timeline > li {
     min-height: 100px;
-    margin-bottom: 100px;
+    margin-bottom: 2px;
   }
   .timeline > li .timeline-panel {
     float: left;

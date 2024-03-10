@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-n^x!sf$&m*___8yl0)yse#xo-r6628#zxq@=sasy@3%417(v@c"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS =  ['www.aeduz.com','aeduz.com','13.126.66.72','localhost','127.0.0.1']
 
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django.contrib.sites",
     "insti_app",
+    "book",
     "allauth",   
     "allauth.account",  
     "allauth.socialaccount",
@@ -84,7 +85,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "startup.wsgi.application"
 import os 
-STATIC_URL = 'static/'
+STATIC_URL = 'static_url/'
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # STATICFILES_DIRS = [

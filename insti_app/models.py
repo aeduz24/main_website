@@ -60,3 +60,14 @@ class MentorReg(models.Model):
     def __str__(self):
         return f"{self.name} | {self.email}"
     
+class Mentee(models.Model):
+    name = models.CharField(max_length=50)
+    email = models.EmailField(max_length=200)
+    contact = models.CharField(max_length=200)
+    coaching = models.CharField(max_length=200)
+    year_of_study = models.CharField(max_length=20)  
+    verified = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"{self.name} | {self.email}"
+    
