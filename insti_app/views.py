@@ -86,3 +86,9 @@ def mentor_reg_view(request):
         return render(request,'index.html',{'insti_form':False,'menti_form':True,'contact_form':False,'dashboard':True })
     else:
         return  render(request,'index.html',{'insti_form':False,'menti_form':False,'contact_form':False,'dashboard':False })
+    
+
+
+
+
+ 

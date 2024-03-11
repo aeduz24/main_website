@@ -1,0 +1,122 @@
+{% load static %}
+{% load socialaccount %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="AeduZ - Personalized 1:1 mentorship platform
+        premier destination for personalised mentorship for JEE, NEET, GENERAL COMPETITION, filled them with confidence & resilience to overcome challenges & achieve their educational goals. 
+        
+        " />
+        <meta name="keywords" content="AeduZ, Personalized mentorship, JEE, NEET, General competition, Confidence, Resilience, Educational goals, Hassle-free study experiences, 1:1 mentorship session, Unlock potential, Institutions, Register, IITian, NITian, Medical support, Contact us, Grievance">
+        <meta name="author" content="" />
+        <title>AeduZ | Home Page </title>
+        
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'css/styles.css'%}" rel="stylesheet" />
+        <link rel="stylesheet" href="{% static 'css/pricing.css'%}">
+
+        <!-- favicon Files -->
+        <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
+        <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}">
+        <link rel="mask-icon" href="{% static 'favicon/safari-pinned-tab.svg' %}" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+
+        <style>
+            /* Custom styles */
+            .testimonial-item {
+                padding: 30px;
+                color: white;
+                background-color: #0D324D; /* Default background color */
+                border-radius: 10px;
+                text-align: center;
+            }
+        
+            .testimonial-item.active {
+                background-color: #ffc107; /* Active (highlighted) background color */
+            }
+        
+            .testimonial-photo {
+                width: 100px; /* Adjust photo size as needed */
+                height: 100px;
+                border-radius: 50%;
+                margin-bottom: 20px;
+            }
+        </style>
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        
+        <nav class="navbar navbar-expand-lg navbar-dark " id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="/"><img src="{% static 'aeduz_transparent.png' %} " style="width:11%;height:100%" alt="..." /></a>
+                {% comment %} <a class="navbar-brand" href="#page-top"><img src="{% static 'final_aeduz.png' %} " alt="..." /></a> {% endcomment %}
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars ms-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="#services">About Us</a></li>
+                        <!-- <li class="nav-item"><a class="nav-link" href="#portfolio">Book 1:1 Call</a></li> -->
+                        <!-- <li class="nav-item"><a class="nav-link" href="#about">Why AeduZ?</a></li> -->
+                        <li class="nav-item"><a class="nav-link" href="/institutes">Institutions </a></li>
+                        <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
+                        {% if user.is_authenticated %}
+    <li class="nav-item"><a class="nav-link" href="{% url 'account_logout' %}">Logout</a></li>
+{% else %}
+    <li class="nav-item"><a class="nav-link" href="/accounts/google/login/">Google SignUp</a></li>
+{% endif %}
+
+<!-- <a href="{% provider_login_url 'google'%}?next=/new">Login with Google</a> -->
+
+                        <!-- <li class="nav-item"><a class="nav-link" href="/accounts/google/login/">Dashboard</a></li> -->
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        
+        
+        
+      
+        <!-- Footer-->
+        <footer class="footer py-4">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 text-lg-start">Copyright &copy; AeduZ Team 2024</div>
+                    <div class="col-lg-4 my-3 my-lg-0">
+                        {% comment %} <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i class="fab fa-twitter"></i></a> {% endcomment %}
+                        {% comment %} <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a> {% endcomment %}
+                        <a class="btn btn-dark btn-social mx-2" href="https://www.linkedin.com/company/aeduz/" target='_blank' aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <div class="col-lg-4 text-lg-end">
+			
+                        <a class="link-dark text-decoration-none me-3" href="privacypolicy">Privacy Policy</a>
+                        <a class="link-dark text-decoration-none" href="/termsofservice">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+       
+        
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{% static 'js/scripts.js' %}"></script>
+      
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
+
+</html>
