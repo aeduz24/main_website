@@ -27,7 +27,7 @@ def book_page(request):
                                                        payment_capture='0'))
 
             razorpay_order_id = razorpay_order['id']
-            callback_url = 'paymenthandler/'
+            callback_url = 'booking/paymenthandler/'
         
             # we need to pass these details to frontend.
             context = {}
@@ -36,9 +36,9 @@ def book_page(request):
             context['razorpay_amount'] = amount
             context['currency'] = currency
             context['callback_url'] = callback_url
-            return render(request, 'book_pay.html', context=context)
+            return render(request, 'gfg_index.html', context=context)
  
-    return HttpResponseNotFound("<h1>Page not found</h1>")
+    return render(request,'book.html')
 
 
 @csrf_exempt
