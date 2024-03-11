@@ -4,8 +4,7 @@ from .views import *
 
 urlpatterns = [
     path("", book_page,name='book_name'),
-    path('paymenthandler/', paymenthandler, name='paymenthandler'),
-    path('gfg_pay/', gfg_homepage, name='index'),
+
     # path("submitted",submitted_insti,name='submit_insti'),
    
     
