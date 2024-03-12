@@ -27,7 +27,7 @@ def book_page(request):
                                                        payment_capture='0'))
 
             razorpay_order_id = razorpay_order['id']
-            callback_url = 'booking/paymenthandler/'
+            callback_url = '/success'
         
             # we need to pass these details to frontend.
             context = {}

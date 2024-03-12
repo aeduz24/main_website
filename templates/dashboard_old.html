@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>AeduZ | Dashboard </title>
+        
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'css/styles.css'%}" rel="stylesheet" />
+        <!-- Favicon-->
+        <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
+        <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}">
+        <link rel="mask-icon" href="{% static 'favicon/safari-pinned-tab.svg' %}" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top " style="position: relative;" id="mainNav">
+          <div class="container">
+            <a class="navbar-brand" href="/"><img src="{% static 'aeduz_transparent.png' %} " style="width:120px;height:90px;" alt="..." /></a>
+              {% comment %} <a class="navbar-brand" href="#page-top"><img src="{% static 'aeduz_logo1.png' %} " alt="..." /></a> {% endcomment %}
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                  Menu
+                  <i class="fas fa-bars ms-1"></i>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarResponsive">
+                  <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                      <li class="nav-item"><a class="nav-link" href="/#services">About Us</a></li>
+                      <li class="nav-item"><a class="nav-link" href="/#portfolio">Book 1:1 Call</a></li>
+                      <li class="nav-item"><a class="nav-link" href="/#about">Why Eduwayy?</a></li>
+                      <li class="nav-item"><a class="nav-link" href="/institutes">Institutions </a></li>
+                      <li class="nav-item"><a class="nav-link" href="/#team">Team</a></li>
+                      <li class="nav-item"><a class="nav-link" href="/#contact">Contact Us</a></li>
+                  </ul>
+              </div>
+          </div>
+      </nav>
+       
+
+        {% if mentee_update %}
+        <div class="alert alert-success alert-dismissible fade show " role="alert">
+            <strong>To book a session, please update your profile first !</strong> 
+            <button type="button" class="btn btn-primary btn-lg" data-bs-toggle= "modal" data-bs-target = "#staticBackdrop_update">
+                Update Profile
+              </button> </strong> 
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        {% endif %}
+       
+        <section class="fdb-block">
+            <div class="container">
+                <div class="row align-items-center">
+                    {% if is_mentor %}
+                        {% if mentor_info.verified %}
+                            <p style="font-size: 22px;">Welcome Mentor</p>
+                            <h1 style="color: rgb(35 127 83);">{{ mentor_info.name }}</h1>
+                        {% else %}
+                            <h1 style="color: rgb(127, 35, 35);">Not verified {{ mentor_info.name }}</h1>
+                        {% endif %}
+                    {% elif is_institute %}
+                        {% if institute_info.verified %}
+                            <p style="font-size: 22px;">Welcome Institution</p>
+                            <h1 style="color: rgb(35 127 83);">{{ institute_info.name }}</h1>
+                        {% else %}
+                            <h1 style="color: rgb(127, 35, 35);">Not verified {{ institute_info.name }}</h1>
+                        {% endif %}
+                        
+                    {% elif mentee_update %}
+
+                    <div class="col-md-3 p-2" style='border:2px red solid;border-radius: 10px;'>
+                        <div class="mb-3">
+                            <h4>Name</h4>
+                            <p> -   </p>
+                        </div>
+                        <div class="mb-3">
+                            <h4>Email address</h4>
+                            <p>{{user.email}}</p>
+                        </div>
+                        <div class="mb-3">
+                            <h4>Contact</h4>
+                            <p> - </p>
+                        </div>
+                        <div class="mb-3">
+                            <h4>Exam Year</h4>
+                            <p> - </p>
+                        </div>
+                    </div>
+        
+                    
+                    
+                    {% else %}
+
+                    
+                    
+                    <div class="col-md-3 offset-md-3 p-2" style='border:2px red solid;border-radius: 10px;'>
+                        
+                        <div class="mb-3">
+                            <h4>Name</h4>
+                            <p> {{mentee_info.name}}</p>
+                        </div>
+                        <div class="mb-3">
+                            <h4>Email address</h4>
+                            <p>{{user.email}}</p>
+                        </div>
+                        <div class="mb-3">
+                            <h4>Contact</h4>
+                            <p> {{mentee_info.contact}} </p>
+                        </div>
+                        <div class="mb-3">
+                            <h4>Coaching Name</h4>
+                            <p> {{mentee_info.coaching}} </p>
+                        </div>
+                        <div class="mb-3">
+                            <h4>Exam Year</h4>
+                            <p> {{mentee_info.year_of_study}} </p>
+                        </div>
+                        <button type="button" class="btn btn-primary btn-lg" data-bs-toggle= "modal" data-bs-target = "#staticBackdrop_update">
+                            Update Profile
+                          </button> 
+                    </div>
+
+                    <div class="col-md-3">
+                        <a  href="/booking" type="button"  class="btn btn-primary btn-lg" style="background-color: rgb(58, 93, 93);" >
+                            Book 1:1 session
+                          </a> 
+                    </div>
+                    
+
+                    <div class="container my-3">
+                        <center>
+
+                            <h2>Appointments Dashboard</h2>
+                        </center>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Time Slot</th>
+                                    <th>Completed</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for appointment in appointments %}
+                                <tr>
+                                    <td>{{ appointment.date }}</td>
+                                    <td>{{ appointment.timeslot }}</td>
+                                    <td>{% if appointment.completed %}Yes{% else %}No{% endif %}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    {% endif %}
+                </div>
+            </div>
+        </section>
+        <section class="">
+          <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 col-md-12 col-lg-6 col-xl-5">
+                    {% if is_mentor %}
+                    <p style="font-size: 22px;">Welcome {{ name }}</p>
+                    <h1 style="color: rgb(35 127 83);">Mentor</h1>
+                    {% elif is_institute %}
+                    <p style="font-size: 22px;">Welcome {{ name }}</p>
+                    <h1 style="color: rgb(35 127 83);">Institutions</h1>
+                    {% endif %}
+                </div>
+
+              {% comment %} <div class="col-12 col-md-8 m-auto ml-lg-auto mr-lg-0 col-lg-6 pt-5 pt-lg-0">
+                <img alt="image" class="img-fluid" src="{% static 'insti.png'%}">
+              </div> {% endcomment %}
+            </div>
+          </div>
+        </section>
+      
+
+        
+
+          </section>
+          <!-- Section -->
+          
+      
+       
+        <!-- update form Modals-->
+
+
+        <div class="modal fade text-black" id="staticBackdrop_update" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="staticBackdropLabel">Register</h5>
+                </div>
+                <div class="modal-body">
+                  <form action="/mentee_reg" method="post"> {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="colName" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="colName" name="name"  required>
+                    </div>
+          
+                    <div class="mb-3">
+                      <label for="state" class="form-label">Personal Email ID</label>
+                      <input type="email" class="form-control" id="state" name="email" value="{{ user.email }}" readonly>
+                    </div>
+          
+                    <div class="mb-3">
+                      <label for="phoneNo" class="form-label">Contact No. </label>
+                      <input type="number" class="form-control" id="phoneNo" name="contact"  required>
+                    </div>
+          
+                    <div class="mb-3">
+                      <label for="whatsNo" class="form-label">Institute (JEE Coaching)</label>
+                      <input type="text" class="form-control" id="whatsNo" name="coaching"  required>
+                    </div>
+          
+                    <div class="mb-3">
+                        <label for="yearOfStudy" class="form-label">Year of Study</label>
+                        <select class="form-select" id="yearOfStudy" name="yearOfStudy" required>
+                            <option value="11th">11th</option>
+                            <option value="12th">12th</option>
+                            <option value="Drop Year">Drop Year </option>
+                          
+        
+                        </select>
+                    </div>
+            
+            
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-success">Update</button>
+                  </form>
+                </div>    
+                      
+               </div>
+                </div>
+                </div>
+
+
+
+
+
+
+
+
+
+        <!-- Footer-->
+        <footer class="footer py-4">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 text-lg-start">Copyright &copy; AeduZ Team 2024</div>
+                    <div class="col-lg-4 my-3 my-lg-0">
+                        {% comment %} <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i class="fab fa-twitter"></i></a> {% endcomment %}
+                        {% comment %} <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a> {% endcomment %}
+                        <a class="btn btn-dark btn-social mx-2" href="https://www.linkedin.com/company/aeduz/" target='_blank' aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <div class="col-lg-4 text-lg-end">
+                        {% comment %} <a class="link-dark text-decoration-none me-3" href="#!">Privacy Policy</a>
+                        <a class="link-dark text-decoration-none" href="#!">Terms of Use</a> {% endcomment %}
+                    </div>
+                </div>
+            </div>
+        </footer>
+       
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{% static 'js/scripts.js' %}"></script>
+       
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
+
+</html>

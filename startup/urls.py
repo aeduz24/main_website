@@ -33,8 +33,10 @@ urlpatterns = [
     path("dashboard",dashboard_view,name='dashboard_name'),
     path('privacypolicy',privacy_view,name="privacy name"),
     path('termsofservice',terms_view,name="terms name"),  
-    path("new", demo_view,name='demo_name'),
+    path("demo", demo_view,name='demo_name'),
  
-     path("payment",payment_view,name="payment name"),
-    path("success",success_view,name="success name")
+    path("payment",payment_view,name="payment name"),
+    path("success",success_view,name="success name"),
+    path("book",book_appoint,name="book_name"),
+    path("bookpayment",paymentbook,name="payment_book"),
 ]
