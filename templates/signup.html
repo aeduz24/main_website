@@ -1,0 +1,87 @@
+{% extends "aeduz_base.html" %}
+
+{% block title %} Aeduz | SignUp{% endblock title %} 
+
+{% block style %}
+{% load static %}
+{% load socialaccount %}
+<style>
+    .new{
+        background-image: url("{% static 'img/road.jpg'%}");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        
+    }
+    
+
+    
+.img-thumbnail {
+    padding: .25rem;
+    background-color:transparent;
+    /* backface-visibility: hidden; */
+    /* border: 6px solid var(--bs-border-color); */
+    border-radius: 3.375rem;
+    max-width: 100%;
+    height: auto;
+}
+ </style> 
+ {% endblock style %}
+{% block content %}
+
+      <div class="container pb-2 " style="color: rgb(0, 0, 0); background-color: aliceblue;">
+        <div class="row">
+            <div class="col-md-6 ">
+
+                <center style="margin-top: 100px;">
+
+                    <!-- <img src="{% static 'img/logo.png'%}" alt="not found"> -->
+                    <img src="{% static 'aeduz_transparent.png'%}"  class="img-thumbnail" style="" alt="...">
+                </center>
+            </div>
+            <div class="col-md-4">
+                <h4 class="text-center mt-1">Signup</h4>
+                <div class="d-grid gap-2 mt-3">
+
+                <button class="btn btn-success "><a href="{% provider_login_url 'google'%}">Log in With Google</a> </button>
+                </div>
+                <center><h5 class="mb-0 my-2">OR</h5></center>
+ 
+                {% for item  in messages %}
+                <div class="alert alert-{{item.tags}} alert-dismissible fade show" role="alert">
+                   {{item}}
+                   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                   
+                </div>
+                {% endfor %}
+                
+                <form action="/signup" method="post">{% csrf_token %}
+                    <label class="mt-2">UserName</label>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="uname" required>
+                    </div>
+                    <label class="mt-2">Email</label>
+                    <div class="form-group">
+                        <input type="email" class="form-control" name="email" required>
+                    </div>
+                    <label class="mt-2" >Password</label>
+                    <div class="form-group">
+                        <input type="password" class="form-control" name="pass1" required>
+                    </div>
+                    <label class="mt-2" >confirm password</label>
+                    <div class="form-group">
+                        <input type="password" class="form-control" name="pass2" required>
+                    </div>
+                    <div class="d-grid gap-2 mt-3">
+                        <button class="btn btn-dark" style="color: white;" type="submit">Sign Up</button>
+                      </div>
+                </form>
+                <br>
+                <p style="color: rgb(0, 0, 0) ;font-size: larger;font-weight: 500;">Already User ?</p>
+                 <!-- <p><a href="/login">login</a></p> -->
+                 <div class="d-grid gap-2 mt-3">
+                <button class="btn btn-info"><a style="text-decoration: none;" href="/login">login</a></button>
+                 </div>
+            </div>
+        </div>
+      </div>
+      {% endblock content %}

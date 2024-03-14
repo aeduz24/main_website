@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-n^x!sf$&m*___8yl0)yse#xo-r6628#zxq@=sasy@3%417(v@c"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS =  ['www.aeduz.com','aeduz.com','13.126.66.72','localhost','127.0.0.1']
 
@@ -140,3 +140,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+from django.contrib.messages import constants as c 
+MESSAGE_TAGS={
+    c.ERROR:'danger'
+}

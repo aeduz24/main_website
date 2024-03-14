@@ -1,6 +1,9 @@
 from django.shortcuts import render,HttpResponse ,redirect
 from insti_app.views import MentorReg,InstiModel
 from insti_app.models import PaymentModel,Mentee
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate,login,logout
+from django.contrib import messages
 def home_page(request):
 
     return render(request,'index.html',{'insti_form':False,'menti_form':False,'contact_form':False,'dashboard':False })
@@ -168,5 +171,62 @@ def paymentbook(request):
     else:
        # if other than POST request is made.
         return HttpResponseBadRequest()
+    
+
+
+def logout_view(request):
+    
+    logout(request)
+    messages.success(request,'Logout successful')
+    return redirect('/')
+
+ 
+def login_view(request):
+    if request.method=='POST':
+        user_onsite=request.POST.get("uname")
+        passw=request.POST.get("pass1")
+
+
+        if authenticate(username=user_onsite,password=passw) is not None:
+            login(request,authenticate(username=user_onsite,password=passw))
+            messages.success(request,'Login successful')
+            return redirect('/')
+        else:
+            messages.error(request,'invalid credentials')
+
+    return render(request,'login.html')
+def signup_view(request):
+    if request.method=='POST':
+        uname1=request.POST.get("uname")
+        email1=request.POST.get("email")
+        password=request.POST.get("pass1")
+        re_pass=request.POST.get("pass2")
+        # print(username,email,password,re_pass)
+        try:
+            if User.objects.get(username=uname1):
+                    messages.warning(request,'username is already taken')
+                    return redirect('/signup')
+        except:
+            pass
+        
+        try:
+            if User.objects.get(email=email1):
+                    messages.info(request,'This email is already registered')
+                    return redirect('/signup')
+        except: 
+            pass
+        
+        try:
+            if password!=re_pass:
+                    messages.warning(request,'password mismatch')
+                    return redirect('/signup')
+        except:
+            pass
+        user=User.objects.create_user(uname1,email1,password)
+        user.save()
+        messages.success(request,'Sign Up Successfully')
+        return redirect('/login')
+    return render(request,'signup.html')
+
 
            

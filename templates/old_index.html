@@ -1,0 +1,611 @@
+{% load static %}
+{% load socialaccount %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="AeduZ - Personalized 1:1 mentorship platform
+        premier destination for personalised mentorship for JEE, NEET, GENERAL COMPETITION, filled them with confidence & resilience to overcome challenges & achieve their educational goals. 
+        
+        " />
+        <meta name="keywords" content="AeduZ, Personalized mentorship, JEE, NEET, General competition, Confidence, Resilience, Educational goals, Hassle-free study experiences, 1:1 mentorship session, Unlock potential, Institutions, Register, IITian, NITian, Medical support, Contact us, Grievance">
+        <meta name="author" content="" />
+        <title>AeduZ | Home Page </title>
+        
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'css/styles.css'%}" rel="stylesheet" />
+        <link rel="stylesheet" href="{% static 'css/pricing.css'%}">
+
+        <!-- favicon Files -->
+        <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
+        <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}">
+        <link rel="mask-icon" href="{% static 'favicon/safari-pinned-tab.svg' %}" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+
+        <style>
+            /* Custom styles */
+            .testimonial-item {
+                padding: 30px;
+                color: white;
+                background-color: #0D324D; /* Default background color */
+                border-radius: 10px;
+                text-align: center;
+            }
+        
+            .testimonial-item.active {
+                background-color: #ffc107; /* Active (highlighted) background color */
+            }
+        
+            .testimonial-photo {
+                width: 100px; /* Adjust photo size as needed */
+                height: 100px;
+                border-radius: 50%;
+                margin-bottom: 20px;
+            }
+        </style>
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        
+        <nav class="navbar navbar-expand-lg navbar-dark " id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="/"><img src="{% static 'aeduz_transparent.png' %} " style="width:11%;height:100%" alt="..." /></a>
+                {% comment %} <a class="navbar-brand" href="#page-top"><img src="{% static 'final_aeduz.png' %} " alt="..." /></a> {% endcomment %}
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars ms-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="#services">About Us</a></li>
+                        <!-- <li class="nav-item"><a class="nav-link" href="#portfolio">Book 1:1 Call</a></li> -->
+                        <!-- <li class="nav-item"><a class="nav-link" href="#about">Why AeduZ?</a></li> -->
+                        <li class="nav-item"><a class="nav-link" href="/institutes">Institutions </a></li>
+                        <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
+                        {% if user.is_authenticated %}
+    <li class="nav-item"><a class="nav-link" href="{% url 'account_logout' %}">Logout</a></li>
+{% else %}
+    <li class="nav-item"><a class="nav-link" href="/accounts/google/login/">Google SignUp</a></li>
+{% endif %}
+
+<!-- <a href="{% provider_login_url 'google'%}?next=/new">Login with Google</a> -->
+
+                        <!-- <li class="nav-item"><a class="nav-link" href="/accounts/google/login/">Dashboard</a></li> -->
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>To Become our Top Mentor !</strong> 
+            <button type="button" class="btn btn-primary btn-lg" data-bs-toggle= "modal" data-bs-target = "#staticBackdrop">
+                Register
+              </button> </strong> 
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+     
+          {%if insti_form or menti_form or contact_form %}
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Form submitted successfully !</strong> 
+          
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          {%endif%}
+          {%if dashboard %}
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>First Google Login in order to go to Dashboard!</strong> 
+          
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          {%endif%}
+        <!-- Masthead-->
+        <header class="masthead">
+            <div class="container">
+                <div class="masthead-heading ">
+                    THROUGH AeduZ !
+                </div>
+                <div class="masthead-subheading">
+                    
+                    Guiding DREAMS Unlocking POTENTIAL
+                </div>
+                {% if user.is_authenticated %}
+               
+                    <a class="btn btn-primary btn-xl text-uppercase" href="/dashboard">Book 1:1 Call (dashboard)</a>
+                {% else %}
+                    <a class="btn btn-primary btn-xl text-uppercase" href="{% provider_login_url 'google'%}?next=/dashboard">Book 1:1 Call</a>
+                {% endif %}
+            </div>
+        </header>
+       
+        <!-- Who we are-->
+        <section class="page-section" id="about">
+            <div class="container">
+                {% comment %} <div class="text-center">
+                    <h2 class="section-heading text-uppercase">About</h2>
+                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                </div> {% endcomment %}
+                <ul class="timeline">
+                    <li>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="{% static 'assets/img/about/1.jpg' %} " alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                {% comment %} <h4>2009-2011</h4> {% endcomment %}
+                                <h4 class="subheading">Who Are We?</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">
+AeduZ is your premier destination for personalized mentorship. Through our innovative platform &amp; network of experienced mentors, we empower the students, filled them with confidence &amp; resilience to overcome challenges & achieve their educational goals.
+                            </p></div>
+                      
+                  
+
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="{% static 'assets/img/about/2.jpg' %} " alt="..." />
+                        </div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                {% comment %} <h4>March 2011</h4> {% endcomment %}
+                                <h4 class="subheading">Our Vision</h4>
+
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">
+                                We aim to facilitate uninterrupted and hassle-free study experiences for nationwide students, ensuring they can focus on their academic pursuits without unnecessary stress or distractions.
+                                                            </p></div>
+                        </div>
+                     
+                    </li>
+                </div>
+
+            <!-- take or not take-->
+            
+            
+        </section>
+        <!-- why do student trust us-->
+        <!-- <p>
+
+            You can talk to our customer service through WhatsApp icon on right-bottom or through mail at <strong><a href=mailto:team@aeduz.com>team@aeduz.com</a></strong>.
+        </p> -->
+
+        <section class="page-section" id="services" style="background-color: #c4d3df;">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Why do Students Trust Us</h2>
+                    {% comment %} <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3> {% endcomment %}
+                </div>
+                <div class="row text-center">
+                    <div class="col-md-3">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">Top Mentors</h4>
+                        <p class="text-muted">Learn from your seniors studying at Top IIT's</p>
+                    </div>
+                    <div class="col-md-3">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">Valuable</h4>
+                        <p class="text-muted">Personalized 1:1 Guidance</p>
+                    </div>
+                    <div class="col-md-3">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">Good Environment</h4>
+                        <p class="text-muted">Study without any unnecessary stress or distractions</p>
+                    </div>
+                    <div class="col-md-3">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">Improve Schedule</h4>
+                        <p class="text-muted">Optimize your study strategies</p>
+                    </div>
+                </div>
+            </div>
+       
+       
+            <hr style="height: 2x;color: white;">
+
+        <!-- benifits for mentors-->
+        <div class="container " style="background-color: #8a9db1; border-radius: 20px;">
+        <div class="row">
+        <div class="col-md-6">
+        <h2>BENEFITS for IITians after becoming AeduZ MENTORS</h2>
+        </div>
+        <div class="col-md-6">
+
+        <ul>
+
+        <li style="list-style-type: none;">
+        <i class="fa-regular fa-square-check"></i>
+        Get lucrative pay for merely a 30-minute guidance session
+        </li>
+        <li style="list-style-type: none;">
+        <i class="fa-regular fa-square-check"></i>
+Start earning right from your first year
+        </li>
+        <li style="list-style-type: none;">
+        <i class="fa-regular fa-square-check"></i>
+Fulfillment from making a meaningful impact
+        </li>
+        <li style="list-style-type: none;">
+        <i class="fa-regular fa-square-check"></i>
+Insight into student challenges and needs
+        </li>
+        </ul>
+        </div>
+        </div>
+        </div>
+    </section >
+        <!-- Pricing Plans -->
+
+        <section id="pricing" class="pricing-content section-padding">
+            <div class="container">					
+                <div class="section-title text-center">
+                    <h2>Pricing Plans</h2>
+                </div>				
+                <div class="row text-center">	
+                    <div class="col-lg-1 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0" style="visibility: visible; animation-duration: 1s; animation-delay: 0.3s; animation-name: fadeInUp;">
+                       
+                    </div>								
+                    <div class="col-lg-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s" data-wow-offset="0" style="visibility: visible; animation-duration: 1s; animation-delay: 0.1s; animation-name: fadeInUp;">
+                        <div class="pricing_design">
+                            <div class="single-pricing">
+                                <div class="price-head">		
+                                    <h2>BASIC</h2>
+                                    
+                                    
+                                    <h1>INR 50 <span><strike style="color: red; font-size: 17px;">INR 200</strike></span></h1>
+                                    
+                                    <span style="color: green;">75% off for first month</span>
+                                    <!-- <span>/per call</span> -->
+                                </div>
+                                <ul>
+                                    <li><b>1</b> call</li>
+                                    <li><b>30</b> Minutes</li>
+                                    <li>AI Search</li>
+                                    <li>Top Mentor</li>
+                                    <li>(IITians, NITians)</li>
+                                    <!-- <li><b>Unlimited</b> Support</li> -->
+                                </ul>
+                                <div class="pricing-price">
+                                    
+                                </div>
+                                <a href="/accounts/google/login/" class="price_btn">Book Now</a>
+                            </div>
+                        </div>
+                    </div><!--- END COL -->	
+                   
+
+                    <div class="col-lg-2 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0" style="visibility: visible; animation-duration: 1s; animation-delay: 0.3s; animation-name: fadeInUp;">
+                       
+                    </div>
+                    <div class="col-lg-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s" data-wow-offset="0" style="visibility: visible; animation-duration: 1s; animation-delay: 0.2s; animation-name: fadeInUp;">
+                        <div class="pricing_design">
+                            <div class="single-pricing">
+                                <div class="price-head">		
+                                    <h2>PREMIUM</h2>
+                                    <h1>INR 225 <span><strike style="color: red; font-size: 17px;">INR 900</strike></span></h1>
+                                    
+                                    <span style="color: green;">75% off for first month</span>
+                                    <!-- <span>/per call</span> -->
+                                </div>
+                                <ul>
+                                    <li><b>5</b> calls</li>
+                                    <li><b>30</b> Minutes each</li>
+                                    <li>AI Search</li>
+                                    <li>Top Mentor</li>
+                                    <li>(IITians, NITians)</li>
+                                </ul>
+                                <div class="pricing-price">
+                                    
+                                </div>
+                                <a href="/accounts/google/login/" class="price_btn">Book Now</a>
+                            </div>
+                        </div>
+                    </div><!--- END COL -->	
+                    
+                    <!-- <div class="col-lg-4 col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0" style="visibility: visible; animation-duration: 1s; animation-delay: 0.3s; animation-name: fadeInUp;">
+                        <div class="pricing_design">
+                            <div class="single-pricing">
+                                <div class="price-head">		
+                                    <h2>INSTITUTES</h2>
+                                    <h1 class="price">5 calls to each Student</h1>
+                                  
+                                </div>
+                                <ul>
+                                    <li><b> &lt;1000 students</b> INR 800</li>
+                                    <li><b>1000 - 5000 students</b> INR 750</li>
+                                    <li><b>&gt;5000 students</b> INR 700</li>
+                                   
+                                </ul>
+                                <div class="pricing-price">
+                                    
+                                </div>
+                                <a href="#contact" class="price_btn">Contact Us</a>
+                            </div>
+                        </div>
+                    </div> -->
+                    <!--- END COL -->			  
+                </div><!--- END ROW -->
+            </div><!--- END CONTAINER -->
+        </section>
+
+
+        <!--Testimonial Section-->
+
+<!--         
+<div class="container py-5" style="background-color: #c4d3df;">
+    <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="row">
+                    <div class="col-md-6 mx-auto">
+                        <div class="testimonial-item">
+                            <img src="testimonial1.jpg" alt="Testimonial 1" class="testimonial-photo">
+                            <h3>Testimonial 1</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-md-6 mx-auto">
+                        <div class="testimonial-item">
+                            <img src="testimonial2.jpg" alt="Testimonial 2" class="testimonial-photo">
+                            <h3>Testimonial 2</h3>
+                            <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-md-6 mx-auto">
+                        <div class="testimonial-item">
+                            <img src="testimonial3.jpg" alt="Testimonial 3" class="testimonial-photo">
+                            <h3>Testimonial 3</h3>
+                            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+            
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div> -->
+        
+        
+              <!-- Team-->
+        <section class="page-section bg-light" id="team">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Meet Our Team </h2>
+                    <h3 class="section-subheading text-muted">We are to-be graduates from IIT Bombay, aspires to deliver high quality mentorship through our qualified mentors and committed to serve every Indian aspirant who dreaming to serve our nation and become an asset in future.</h3>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle" src="{% static 'assets/img/team/dhananjay.jpeg' %} " alt="..." />
+                            <h4>Dhananjay Kumar</h4>
+                            <p class="text-muted">"The compassionate mentor, lighting path for students to achieve their dreams"</p>
+                            <!-- <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Twitter Profile"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Facebook Profile"><i class="fab fa-facebook-f"></i></a> -->
+                            <a class="btn btn-dark btn-social mx-2" href="https://www.linkedin.com/in/dhananjay-kumar-1531a0211/" target="_blank" aria-label="Dhananjay LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle" src="{% static 'assets/img/team/aditya.jpg' %} " alt="..." />
+                            <h4>Aditya Malhotra</h4>
+                            <br>
+                            <p class="text-muted">"Burning fire inside aspirants"</p>
+                            <br>
+                            <!-- <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen Twitter Profile"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen Facebook Profile"><i class="fab fa-facebook-f"></i></a> -->
+                            <a class="btn btn-dark btn-social mx-2" href="https://www.linkedin.com/in/aditya-%E2%80%8E-05956a201/" target="_blank" aria-label="Aditya Malhotra LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle" src="{% static 'assets/img/team/shubham.jpg' %} " alt="..." />
+                            <h4>Shubham Jadhav</h4>
+                            <br>
+                            <p class="text-muted">"AeduZ connects future IITians with IITians"</p>
+                            <!-- <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Twitter Profile"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Facebook Profile"><i class="fab fa-facebook-f"></i></a> -->
+                            <a class="btn btn-dark btn-social mx-2" href="https://www.linkedin.com/in/shubham-jadhav-281222222/" target="_blank" aria-label="Shubham Jadhav LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3    ">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle" src="{% static 'assets/img/team/akshat.jpeg' %} " alt="..." />
+                            <h4>Akshat Jain</h4>
+                            <br>
+                            <p class="text-muted">"Solving aspirant's problems with our experience and infrastructure"</p>
+                            <!-- <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Twitter Profile"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Facebook Profile"><i class="fab fa-facebook-f"></i></a> -->
+                            <a class="btn btn-dark btn-social mx-2" href="https://www.linkedin.com/in/akshat-jain-03809a1ba/" target='_blank' aria-label="Akshat Jain LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+        
+        
+        <!-- Clients-->
+        <!-- <div class="py-5">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-3 col-sm-6 my-3">
+                        <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="{% static 'assets/img/logos/microsoft.svg' %} " alt="..." aria-label="Microsoft Logo" /></a>
+                    </div>
+                    <div class="col-md-3 col-sm-6 my-3">
+                        <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="{% static 'assets/img/logos/google.svg' %} " alt="..." aria-label="Google Logo" /></a>
+                    </div>
+                    <div class="col-md-3 col-sm-6 my-3">
+                        <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="{% static 'assets/img/logos/facebook.svg' %} " alt="..." aria-label="Facebook Logo" /></a>
+                    </div>
+                    <div class="col-md-3 col-sm-6 my-3">
+                        <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="{% static 'assets/img/logos/ibm.svg' %} " alt="..." aria-label="IBM Logo" /></a>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <!-- Contact-->
+        <section class="page-section" id="contact">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Contact Us</h2>
+                    {% comment %} <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3> {% endcomment %}
+                </div>
+                 <p style="color : white">
+
+            You can also mail us at <strong><a href=mailto:team@aeduz.com>team@aeduz.com</a></strong>.
+        </p>
+
+                <form id="contactForm" method="post" action="/submit">{%csrf_token%}
+                    <div class="row align-items-stretch mb-5">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <!-- Name input-->
+                                <input class="form-control"  name="name" type="text" placeholder="Your Name *" required />
+                              
+                            </div>
+                            <div class="form-group">
+                                <!-- Email address input-->
+                                <input class="form-control"  name="email" type="email" placeholder="Your Email *" required />
+                            
+                            </div>
+                            <div class="form-group mb-md-0">
+                                <!-- Phone number input-->
+                                <input class="form-control" name="tel"  type="tel" placeholder="Your Phone *" required/>
+                                
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group form-group-textarea mb-md-0">
+                                <!-- Message input-->
+                                <textarea class="form-control" name="message" placeholder="Your Message *" required ></textarea>
+                                
+                            </div>
+                        </div>
+                    </div>
+                  
+                    <!-- This is what your users will see when there is-->
+                    <!-- an error submitting the form-->
+                    
+                    <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase " id="submitButton" type="submit">Send Message</button></div>
+                </form>
+            </div>
+        </section>
+       
+
+        <!-- Modal -->
+<div class="modal fade text-black" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Register</h5>
+        </div>
+        <div class="modal-body">
+          <form action="/mentor_reg" method="post"> {% csrf_token %}
+            <div class="mb-3">
+                <label for="colName" class="form-label">Name</label>
+                <input type="text" class="form-control" id="colName" name="name"  required>
+            </div>
+  
+            <div class="mb-3">
+              <label for="state" class="form-label">Personal Email ID</label>
+              <input type="email" class="form-control" id="state" name="email"  required>
+            </div>
+  
+            <div class="mb-3">
+              <label for="phoneNo" class="form-label">Contact No. </label>
+              <input type="number" class="form-control" id="phoneNo" name="contact"  required>
+            </div>
+  
+            <div class="mb-3">
+              <label for="whatsNo" class="form-label">Institute (JEE Coaching)</label>
+              <input type="text" class="form-control" id="whatsNo" name="coaching"  required>
+            </div>
+  
+            <div class="mb-3">
+                <label for="yearOfStudy" class="form-label">Year of Study</label>
+                <select class="form-select" id="yearOfStudy" name="yearOfStudy" required>
+                    <option value="1st">1st year</option>
+                    <option value="2nd">2nd year</option>
+                    <option value="3rd">3rd year </option>
+                    <option value="4th">4th year </option>
+                    <option value="Dual Degree">Dual Degree</option>
+
+                </select>
+            </div>
+    
+    
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-success">Submit</button>
+          </form>
+        </div>    
+              
+       </div>
+        </div>
+        </div>
+        
+         <!-- Footer-->
+         <footer class="footer py-4">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 text-lg-start">Copyright &copy; AeduZ Team 2024</div>
+                    <div class="col-lg-4 my-3 my-lg-0">
+                        {% comment %} <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i class="fab fa-twitter"></i></a> {% endcomment %}
+                        {% comment %} <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a> {% endcomment %}
+                        <a class="btn btn-dark btn-social mx-2" href="https://www.linkedin.com/company/aeduz/" target='_blank' aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <div class="col-lg-4 text-lg-end">
+			
+                        <a class="link-dark text-decoration-none me-3" href="privacypolicy">Privacy Policy</a>
+                        <a class="link-dark text-decoration-none" href="/termsofservice">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{% static 'js/scripts.js' %}"></script>
+      
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
+
+</html>
