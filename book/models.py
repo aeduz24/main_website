@@ -7,6 +7,7 @@ class BookModel(models.Model):
     email = models.CharField(max_length=100)
     completed=models.BooleanField(default=False)
     order_id=models.CharField(max_length=100)
+    meet_link=models.CharField(max_length=100,default="")
 
     def __str__(self):
         return f"{self.email} | {self.date} | {self.timeslot}"

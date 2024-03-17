@@ -49,13 +49,13 @@
     {% load socialaccount %}
 
     
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
+    {% comment %} <div class="alert alert-success alert-dismissible fade show" role="alert">
         <strong>To Become our Top Mentor !</strong> 
         <button type="button" class="btn btn-primary btn-lg" data-bs-toggle= "modal" data-bs-target = "#staticBackdrop">
             Register
           </button> </strong> 
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
+      </div> {% endcomment %}
  
       {%if insti_form or menti_form or contact_form %}
       <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -82,9 +82,9 @@
                 Guiding DREAMS Unlocking POTENTIAL
             </div>
             {% if user.is_authenticated %}
-            <li class="nav-item"><a class="nav-link" href="{% url 'account_logout' %}">Logout</a></li>
-            <li class="nav-item"><a class="nav-link" href="/accounts/google/login/">Google SignUp</a></li> 
-            <a class="btn btn-primary btn-xl text-uppercase" href="/dashboard">Book 1:1 Call</a>
+            {% comment %} <li class="nav-item"><a class="nav-link" href="{% url 'account_logout' %}">Logout</a></li>
+            <li class="nav-item"><a class="nav-link" href="/accounts/google/login/">Google SignUp</a></li>  {% endcomment %}
+            <a class="btn btn-primary btn-xl text-uppercase" href="/dashboard">Dashboard</a>
             {% else %}
                 <a class="btn btn-primary btn-xl text-uppercase" href="{% provider_login_url 'google'%}?next=/dashboard">Book 1:1 Call</a>
             {% endif %}

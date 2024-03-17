@@ -98,6 +98,8 @@ def book_appoint(request):
             timeslot = request.POST.get('timeslot', '')
             email = request.POST.get('email', '')
 
+            
+
             amount=100
             currency="INR"
 

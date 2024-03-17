@@ -35,58 +35,43 @@
     </head>
     <body id="page-top">
         <!-- Navigation-->
-        
-        <nav class="navbar navbar-expand-lg navbar-dark " id="mainNav">
+        <nav class="navbar navbar-expand-lg navbar-dark" id="mainNav">
             <div class="container">
-                <a class="navbar-brand" href="/"><img src="{% static 'aeduz_transparent.png' %} " style="width:11%;height:100%" alt="..." /></a>
-                {% comment %} <a class="navbar-brand" href="#page-top"><img src="{% static 'final_aeduz.png' %} " alt="..." /></a> {% endcomment %}
+                <a class="navbar-brand" href="/"><img src="{% static 'aeduz_transparent.png' %}" style="width: 11%; height: 100%" alt="AeduZ Logo"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    Menu
-                    <i class="fas fa-bars ms-1"></i>
+                    <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                    <ul class="navbar-nav ms-auto text-uppercase">
                         <li class="nav-item"><a class="nav-link" href="#services">About Us</a></li>
-                        <!-- <li class="nav-item"><a class="nav-link" href="#portfolio">Book 1:1 Call</a></li> -->
-                        <!-- <li class="nav-item"><a class="nav-link" href="#about">Why AeduZ?</a></li> -->
-                        <li class="nav-item"><a class="nav-link" href="/institutes">Institutions </a></li>
+                        <li class="nav-item"><a class="nav-link" href="/institutes">Institutions</a></li>
                         <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
                         {% if user.is_authenticated %}
-
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" style="color: black;background-color: white; border-radius: 10px;" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                               {{user.username}}
-                            </a>
-                            <ul class="dropdown-menu">
-                             <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li> 
-                             
-                              <!-- <li class="dropdown-item" ><a class="nav-link" href="{% url 'account_logout' %}">Logout</a></li> -->
-                            </ul>
-                          </li>
+                            <a class=" dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ user.username }}</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                 <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
+                            </div>
+                        </li>
                         {% else %}
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            New User?
-                            </a>
-                            <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/login">Login</a></li>
-                            <li><a class="dropdown-item" href="/signup">Signup</a></li>
-                            <li><a class="dropdown-item" href="/accounts/google/login/">Google Signin</a></li>
-                            <!-- <li class="dropdown-item"><a class="nav-link" href="/accounts/google/login/">Google Signin </a></li> -->
-                            <!-- <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li> -->
-                            </ul>
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">New User?</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/login">Login</a>
+                                <a class="dropdown-item" href="/signup">Signup</a>
+                                <a class="dropdown-item" href="/accounts/google/login/">Google Signin</a>
+                            </div>
                         </li>
                         {% endif %}
-
-<!-- <a href="{% provider_login_url 'google'%}?next=/new">Login with Google</a> -->
-
-                        <!-- <li class="nav-item"><a class="nav-link" href="/accounts/google/login/">Dashboard</a></li> -->
                     </ul>
                 </div>
             </div>
         </nav>
+        
+        
+        
+          
 
 {% block content %}{% endblock content %}
         
