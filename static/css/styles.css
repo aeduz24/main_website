@@ -10948,7 +10948,7 @@ header.masthead {
   text-align: center;
   color: black;
   background-image: url("../back_aeduz.jpg");
-  background-color: #c4d3df;
+  /* background-color: #c4d3df; */
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;

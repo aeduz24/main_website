@@ -108,6 +108,7 @@
                             <th>Date</th>
                             <th>Time Slot</th>
                             <th>payment Completed</th>
+                            <th>Meet Link</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -115,8 +116,18 @@
                         <tr>
                             <td>{{ appointment.date }}</td>
                             <td>{{ appointment.timeslot }}</td>
-                            <td>{% if appointment.completed %}Yes{% else %}No{% endif %}</td>
-                            <td></td>
+                            <td>{% if appointment.completed %}
+                                Yes
+                                
+                                {% else %}
+                                <form  action='orderpayment' method="post">
+                                    {% csrf_token %}
+                                    <input type="hidden" id="order_id" name="order_id" value="{{ appointment.order_id }}">
+                                    <button class="btn btn-success" type="submit">Pay Now!</button>
+                                </form>
+                                
+                                {% endif %}</td>
+                            <td>{% if appointment.meet_link %}{{appointment.meet_link}}{% else %}Updated soon !{% endif %}</td>
                         </tr>
                         {% endfor %}
                     </tbody>

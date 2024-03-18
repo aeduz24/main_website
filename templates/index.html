@@ -66,7 +66,7 @@
       {%endif%}
       {%if dashboard %}
       <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <strong>First Google Login in order to go to Dashboard!</strong> 
+        <strong>First Login in order to go to Dashboard!</strong> 
       
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
@@ -92,7 +92,7 @@
     </header>
    
     <!-- Who we are-->
-    <section class="page-section" id="about">
+    <section class="page-section" id="about_id">
         <div class="container">
             {% comment %} <div class="text-center">
                 <h2 class="section-heading text-uppercase">About</h2>
@@ -187,7 +187,7 @@ AeduZ is your premier destination for personalized mentorship. Through our innov
         <hr style="height: 2x;color: white;">
 
     <!-- benifits for mentors-->
-    <div class="container " style="background-color: #8a9db1; border-radius: 20px;">
+    <div class="container pt-3" style="background-color: #8a9db1; border-radius: 20px;">
     <div class="row">
     <div class="col-md-6">
     <h2>BENEFITS for IITians after becoming AeduZ MENTORS</h2>
@@ -235,7 +235,8 @@ Insight into student challenges and needs
                                 <h2>BASIC</h2>
                                 
                                 
-                                <h1>INR 50 <span><strike style="color: red; font-size: 17px;">INR 200</strike></span></h1>
+                                <!-- <h1>INR 50 <span><strike style="color: red; font-size: 17px;">INR 200</strike></span></h1> -->
+                                <h4>INR 50 <span class="badge text-bg-success">INR 1 for first 2 calls !</span></h4>
                                 
                                 <span style="color: green;">75% off for first month</span>
                                 <!-- <span>/per call</span> -->
@@ -243,7 +244,7 @@ Insight into student challenges and needs
                             <ul>
                                 <li><b>1</b> call</li>
                                 <li><b>30</b> Minutes</li>
-                                <li>AI Search</li>
+                                <li>AI Search <span class="badge text-bg-danger">Upcoming</span></li>
                                 <li>Top Mentor</li>
                                 <li>(IITians, NITians)</li>
                                 <!-- <li><b>Unlimited</b> Support</li> -->
@@ -280,7 +281,8 @@ Insight into student challenges and needs
                             <div class="pricing-price">
                                 
                             </div>
-                            <a href="/accounts/google/login/" class="price_btn">Book Now</a>
+                            <!-- <a href="/accounts/google/login/" class="price_btn">Book Now</a> -->
+                            <a href="#" class="price_btn" style="background-color: #8a9db1;">Upcoming</a>
                         </div>
                     </div>
                 </div><!--- END COL -->	

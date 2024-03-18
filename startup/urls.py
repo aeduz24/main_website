@@ -39,6 +39,7 @@ urlpatterns = [
     path("success",success_view,name="success name"),
     path("book",book_appoint,name="book_name"),
     path("bookpayment",paymentbook,name="payment_book"),
+    path("orderpayment",order_payment,name="payment_order"),
     path("login",login_view,name='login'),
     path("signup",signup_view,name='signup'),
     path("logout",logout_view,name='logout'),

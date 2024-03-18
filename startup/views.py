@@ -124,6 +124,37 @@ def book_appoint(request):
     
     return render(request,'book.html')
 
+def order_payment(request):
+
+    if request.method=="POST":
+        if request.user.is_authenticated:
+            user = request.user  
+
+            email=user.email
+
+            
+
+            amount=100
+            currency="INR"
+
+
+            razorpay_order_id = request.POST.get('order_id')
+
+            # book_model = BookModel(date=date, timeslot=timeslot, email=email,order_id=razorpay_order_id)
+            # book_model.save()
+            callback_url = 'bookpayment'
+        
+            # we need to pass these details to frontend.
+            context = {}
+            context['razorpay_order_id'] = razorpay_order_id
+            context['razorpay_merchant_key'] = 'rzp_live_WKs3ynkTOP8lcd'
+            context['razorpay_amount'] = amount
+            context['currency'] = currency
+            context['callback_url'] = callback_url
+            return render(request, 'gfg_index.html', context=context)
+    
+    return render(request,'book.html')
+
 
 @csrf_exempt
 def paymentbook(request):
@@ -174,6 +205,7 @@ def paymentbook(request):
        # if other than POST request is made.
         return HttpResponseBadRequest()
     
+
 
 
 def logout_view(request):
