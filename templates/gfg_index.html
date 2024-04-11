@@ -1,13 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>AeduZ | Payment Confirmation</title>
-	<style>
+
+{% extends "aeduz_base.html" %}
+
+
+{% block title %}AeduZ | Payment Confirmation{% endblock title %}
+
+
+{% block style %}
 	
-	* {
+<style>
+	
+	/* * {
 		box-sizing: border-box;
 		padding: 0px;
 		margin: 0px;
@@ -16,13 +18,13 @@
 	html,
 	body {
 		height: 100%;
-	}
-	body {
+	} */
+	/* body {
 		background-color: #f1f5f8;
 		display: flex;
 		justify-content: center;
 		align-items: center;
-	}
+	} */
 	.card {
 		background-color: white;
 		padding: 25px;
@@ -48,15 +50,21 @@
 		border-radius: 4px;
 		cursor: pointer;
 		padding: 4px 8px;
-		background-color: #16a131;
+		/* background-color: #16a131; */
 		color: white;
 		font-size: 1.2em;
 		font-weight: 600;
 		letter-spacing: 1px;
 	}
 	</style>
-</head>
-<body>
+{% endblock style %}
+
+
+{% block content %} 
+
+<div class="containter m-4 p-4" >
+
+
 	<div class="card">
 	<h1 class="title">Confirm Payment  </h1>
 	<small class="muted"
@@ -67,7 +75,10 @@
 		<button class="btn" id="pay-btn">Pay Now !</button>
 	</div>
 	</div>
-</body>
+
+</div>
+
+<div class="container mb-4"></div>
 
 <!-- Razorpay's Javascript code. -->
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
@@ -100,4 +111,6 @@
 	e.preventDefault();
 	};
 </script>
-</html>
+
+
+{% endblock content %}
