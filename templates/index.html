@@ -48,14 +48,22 @@
    
     {% load socialaccount %}
 
-    
-    {% comment %} <div class="alert alert-success alert-dismissible fade show" role="alert">
+   <!-- <div class="alert alert-success alert-dismissible fade show" role="alert">
         <strong>To Become our Top Mentor !</strong> 
         <button type="button" class="btn btn-primary btn-lg" data-bs-toggle= "modal" data-bs-target = "#staticBackdrop">
             Register
           </button> </strong> 
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div> {% endcomment %}
+      </div>  -->
+   <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>To Become our Top Mentor !</strong> 
+        <!-- <button type="button" class="btn btn-primary btn-lg" data-bs-toggle= "modal" data-bs-target = "#staticBackdrop">
+            Register
+          </button>  -->
+          <a href="https://forms.gle/Kmmi7hX4pFyWBELg6" class="btn btn-primary btn-lg" target="_blank">Register</a>
+        </strong> 
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div> 
  
       {%if insti_form or menti_form or contact_form %}
       <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -175,7 +183,7 @@ AeduZ is your premier destination for personalized mentorship. Through our innov
                 <div class="col-md-3">
                     <span class="fa-stack fa-4x">
                         <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
+                        <i class="fas fa-clock fa-stack-1x fa-inverse"></i>
                     </span>
                     <h4 class="my-3">Improve Schedule</h4>
                     <p class="text-muted">Optimize your study strategies</p>
@@ -235,8 +243,8 @@ Insight into student challenges and needs
                                 <h2>BASIC</h2>
                                 
                                 
-                                <!-- <h1>INR 50 <span><strike style="color: red; font-size: 17px;">INR 200</strike></span></h1> -->
-                                <h4>INR 50 <span class="badge text-bg-success">INR 1 for first 2 calls !</span></h4>
+                                <h1>INR 50 <span><strike style="color: red; font-size: 17px;">INR 200</strike></span></h1>
+                                <!-- <h4>INR 50 <span class="badge text-bg-success">INR 1 for first 2 calls !</span></h4> -->
                                 
                                 <span style="color: green;">75% off for first month</span>
                                 <!-- <span>/per call</span> -->
@@ -274,7 +282,8 @@ Insight into student challenges and needs
                             <ul>
                                 <li><b>5</b> calls</li>
                                 <li><b>30</b> Minutes each</li>
-                                <li>AI Search</li>
+                                <!-- <li>AI Search</li> -->
+                                <li>AI Search <span class="badge text-bg-danger">Upcoming</span></li>
                                 <li>Top Mentor</li>
                                 <li>(IITians, NITians)</li>
                             </ul>

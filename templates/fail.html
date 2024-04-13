@@ -21,4 +21,26 @@ Payment Failure
         Your Payment Failed !
     </h2>
 </div>
+
+
+
+<div id="redirectMessage" class="mt-4" style="color: blue;">Redirecting to dashboard in <span id="countdown">3</span> seconds</div>
+
+<script>
+    // Function to update countdown message
+    function updateCountdown(counter) {
+        document.getElementById('countdown').textContent = counter;
+    }
+
+    // Redirect to /dashboard after 3 seconds
+    var counter = 3;
+    var countdownInterval = setInterval(function() {
+        updateCountdown(counter);
+        counter--;
+        if (counter === 0) {
+            clearInterval(countdownInterval);
+            window.location.href = "/dashboard";
+        }
+    }, 1000); // Update every 1 second (1000 milliseconds)
+</script>
 {% endblock content %}

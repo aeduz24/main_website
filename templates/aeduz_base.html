@@ -33,7 +33,7 @@
         {% block style %}{% endblock style %}
      
     </head>
-    <body id="page-top">
+    <body id="page-top" class='min-vh-100 d-flex flex-column '>
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark" id="mainNav">
             <div class="container">
@@ -75,14 +75,22 @@
             </div>
         </nav>
         
-        
+
+<style>
+    footer1 {
+        clear: both;
+        position: relative;
+        height: 200px;
+       
+    }
+</style>
         
           
 
 {% block content %}{% endblock content %}
         
            <!-- Footer-->
-        <footer class="footer py-4">
+        <footer class=" footer py-4 mt-auto">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-4 text-lg-start">Copyright &copy; AeduZ Team 2024</div>

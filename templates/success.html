@@ -2,10 +2,31 @@
 
 {% block content %}
 
-<div class="text-center mt-5 pt-5">
+<div class="text-center m-5 pt-5">
     <img src="https://icons.veryicon.com/png/o/miscellaneous/new-version-of-star-selected-icon/success-26.png" style="height: 200px;" alt="" class="img-fluid">
     <h2 class="mt-4">
         Your Payment has been Received ! 
     </h2>
+
+    <div id="redirectMessage" class="mt-4" style="color: blue;">Redirecting to dashboard in <span id="countdown">3</span> seconds</div>
+
+    <hr>
+    <script>
+        // Function to update countdown message
+        function updateCountdown(counter) {
+            document.getElementById('countdown').textContent = counter;
+        }
+    
+        // Redirect to /dashboard after 3 seconds
+        var counter = 3;
+        var countdownInterval = setInterval(function() {
+            updateCountdown(counter);
+            counter--;
+            if (counter === 0) {
+                clearInterval(countdownInterval);
+                window.location.href = "/dashboard";
+            }
+        }, 1000); // Update every 1 second (1000 milliseconds)
+    </script>
 </div>
 {% endblock content %}
