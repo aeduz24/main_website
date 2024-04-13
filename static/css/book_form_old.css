@@ -1,5 +1,5 @@
 
-        html, body * { box-sizing: border-box; font-family: 'Open Sans', sans-serif; }
+html, body * { box-sizing: border-box; font-family: 'Open Sans', sans-serif; }
 
 
 .frame{
@@ -98,7 +98,25 @@ li {
   opacity: .0;
 }
 
+.form-signup {
+  width: 430px;
+  /* height: 375px; */
+  font-size: 16px;
+  font-weight: 300;
+  padding-left: 37px;
+  padding-right: 37px;
+  padding-top: 55px;
+  position: relative;
+  top: -375px;
+  left: 400px;
+  opacity: 0;
+  transition: all .5s ease;
+}
 
+.form-signup-left {
+  transform: translateX(-399px);
+  opacity: 1;
+}
 
 .form-signup-down {
   top: 0px;

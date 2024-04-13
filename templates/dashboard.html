@@ -61,9 +61,34 @@
             
             {% else %}
 
+            <div class="col-md-3 offset-md-3 p-2" style='box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);border-radius: 10px;' id="profileInfo">
+                <div class="mb-3">
+                    <h4>Name</h4>
+                    <p>{{mentee_info.name}}</p>
+                </div>
+                <div class="mb-3">
+                    <h4>Email address</h4>
+                    <p>{{user.email}}</p>
+                </div>
+                <div class="mb-3">
+                    <h4>Contact</h4>
+                    <p>{{mentee_info.contact}}</p>
+                </div>
+                <div class="mb-3">
+                    <h4>Coaching Name</h4>
+                    <p>{{mentee_info.coaching}}</p>
+                </div>
+                <div class="mb-3">
+                    <h4>Exam Year</h4>
+                    <p>{{mentee_info.year_of_study}}</p>
+                </div>
+                <button type="button" id="updateProfileBtn" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#staticBackdrop_update">
+                    Update Profile
+                </button> 
+            </div>
             
             
-            <div class="col-md-3 offset-md-3 p-2" style='border:2px red solid;border-radius: 10px;' id="profileInfo">
+            <!-- <div class="col-md-3 offset-md-3 p-2" style='border:2px red solid;border-radius: 10px;' id="profileInfo">
                 
                 <div class="mb-3">
                     <h4>Name</h4>
@@ -88,7 +113,7 @@
                 <button type="button" id="updateProfileBtn" class="btn btn-primary btn-lg" data-bs-toggle= "modal" data-bs-target = "#staticBackdrop_update">
                     Update Profile
                   </button> 
-            </div>
+            </div> -->
 
             <script>
                 document.getElementById("profileInfo").addEventListener("click", function() {

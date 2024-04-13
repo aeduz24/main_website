@@ -100,7 +100,7 @@ def book_appoint(request):
 
             
 
-            amount=100
+            amount=500
             currency="INR"
 
             razorpay_order = razorpay_client.order.create(dict(amount=amount,
